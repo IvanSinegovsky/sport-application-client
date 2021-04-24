@@ -13,7 +13,7 @@ const defaultState = {
     dirStack: [],
     view: 'list',
 }
-
+// todo вместо информации о файлах - информация о тренировках
 export default function fileReducer(state = defaultState, action) {
     switch (action.type) {
         case SET_FILES: return {...state, files: action.payload}
