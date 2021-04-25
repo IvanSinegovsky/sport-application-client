@@ -1,36 +1,36 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {createDir, getFiles, uploadFile} from "../../actions/file";
-import FileList from "./fileList/FileList";
-import './disk.css'
+import {createDay, getWorkouts, uploadWorkout} from "../../actions/workout";
+import WorkoutList from "./workoutList/WorkoutList";
+import './calendar.css'
 import Popup from "./Popup";
-import {setCurrentDir, setFileView, setPopupDisplay} from "../../reducers/fileReducer";
+import {setCurrentDay, setWorkoutView, setPopupDisplay} from "../../reducers/workoutReducer";
 import Uploader from "./uploader/Uploader";
 
-const Disk = () => {
+const Calendar = () => {
     const dispatch = useDispatch()
-    const currentDir = useSelector(state => state.files.currentDir)
+    const currentDay = useSelector(state => state.files.currentDay)
     const loader = useSelector(state => state.app.loader)
-    const dirStack = useSelector(state => state.files.dirStack)
+    const dayStack = useSelector(state => state.files.dayStack)
     const [dragEnter, setDragEnter] = useState(false)
     const [sort, setSort] = useState('type')
 
     useEffect(() => {
-        dispatch(getFiles(currentDir, sort))
-    }, [currentDir, sort])
+        dispatch(getWorkouts(currentDay, sort))
+    }, [currentDay, sort])
 
     function showPopupHandler() {
         dispatch(setPopupDisplay('flex'))
     }
 
     function backClickHandler() {
-        const backDirId = dirStack.pop()
-        dispatch(setCurrentDir(backDirId))
+        const backDayId = dayStack.pop()
+        dispatch(setCurrentDay(backDayId))
     }
 
     function fileUploadHandler(event) {
         const files = [...event.target.files]
-        files.forEach(file => dispatch(uploadFile(file, currentDir)))
+        files.forEach(file => dispatch(uploadWorkout(file, currentDay)))
     }
 
     function dragEnterHandler(event) {
@@ -49,7 +49,7 @@ const Disk = () => {
         event.preventDefault()
         event.stopPropagation()
         let files = [...event.dataTransfer.files]
-        files.forEach(file => dispatch(uploadFile(file, currentDir)))
+        files.forEach(file => dispatch(uploadWorkout(file, currentDay)))
         setDragEnter(false)
     }
 
@@ -77,10 +77,10 @@ const Disk = () => {
                         <option value="type">По типу</option>
                         <option value="date">По дате</option>
                     </select>
-                    <button className="disk__plate" onClick={() => dispatch(setFileView('plate'))}/>
-                    <button className="disk__list" onClick={() => dispatch(setFileView('list'))}/>
+                    <button className="disk__plate" onClick={() => dispatch(setWorkoutView('plate'))}/>
+                    <button className="disk__list" onClick={() => dispatch(setWorkoutView('list'))}/>
                 </div>
-                <FileList/>
+                <WorkoutList/>
                 <Popup/>
                 <Uploader/>
             </div>
@@ -91,4 +91,4 @@ const Disk = () => {
     );
 };
 
-export default Disk;
+export default Calendar;

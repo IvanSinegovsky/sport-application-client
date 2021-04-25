@@ -10,7 +10,7 @@ export const registration = async (firstName, lastName, email, password) => {
             email,
             password
         })
-        alert('its okay');
+        alert('registration passed');
     } catch (e) {
         alert(e)
     }
@@ -31,7 +31,6 @@ export const login = (email, password) => {
     }
 }
 
-// todo add in api or change
 export const auth =  () => {
     return async dispatch => {
         try {

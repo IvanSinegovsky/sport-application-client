@@ -6,7 +6,7 @@ import Registration from "./authorization/Registration";
 import Login from "./authorization/Login";
 import {useDispatch, useSelector} from "react-redux";
 import {auth} from "../actions/user";
-import Disk from "./disk/Disk";
+import Calendar from "./calendar/Calendar";
 import Profile from "./profile/Profile";
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
                         </Switch>
                         :
                         <Switch>
-                            <Route exact path="/" component={Disk}/>
+                            <Route exact path="/" component={Calendar}/>
                             <Route exact path="/profile" component={Profile}/>
                             <Redirect to="/"/>
                         </Switch>

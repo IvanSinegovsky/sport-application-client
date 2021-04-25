@@ -1,10 +1,10 @@
 import React from 'react';
-import './fileList.css'
+import './workoutList.css'
 import {useSelector} from "react-redux";
-import File from "./file/File";
+import File from "./workout/File";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 
-const FileList = () => {
+const WorkoutList = () => {
 
     const files = useSelector(state => state.files.files)
     const fileView = useSelector(state => state.files.view)
@@ -51,4 +51,4 @@ const FileList = () => {
 
 };
 
-export default FileList;
+export default WorkoutList;

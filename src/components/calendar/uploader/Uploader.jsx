@@ -1,5 +1,5 @@
 import React from 'react';
-import UploadFile from "./UploadFile";
+import UploadWorkout from "./UploadWorkout";
 import './uploader.css'
 import {useDispatch, useSelector} from "react-redux";
 import {hideUploader} from "../../../reducers/uploadReducer";
@@ -16,7 +16,7 @@ const Uploader = () => {
                 <button className="uploader__close" onClick={() => dispatch(hideUploader())}>X</button>
             </div>
             {files.map(file =>
-                <UploadFile key={file.id} file={file}/>
+                <UploadWorkout key={file.id} file={file}/>
             )}
         </div>
     );
