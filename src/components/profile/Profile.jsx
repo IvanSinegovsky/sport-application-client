@@ -6,14 +6,14 @@ const Profile = () => {
     const dispatch = useDispatch()
 
     function changeHandler(e) {
-        const file = e.target.files[0]
-        dispatch(uploadAvatar(file))
+        const workout = e.target.workouts[0]
+        dispatch(uploadAvatar(workout))
     }
 
     return (
         <div>
             <button onClick={() => dispatch(deleteAvatar())}>Удалить аватар</button>
-            <input accept="image/*" onChange={e => changeHandler(e)} type="file" placeholder="Загрузить аватар"/>
+            <input accept="image/*" onChange={e => changeHandler(e)} type="workout" placeholder="Загрузить аватар"/>
         </div>
     );
 };

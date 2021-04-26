@@ -23,6 +23,7 @@ export function getWorkouts(dayId, sort) {
             });
             dispatch(setWorkouts(response.data))
         } catch (e) {
+            alert('getWorkouts() died')
             alert(e.response.data.message)
         } finally {
             dispatch(hideLoader())

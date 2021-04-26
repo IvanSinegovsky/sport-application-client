@@ -1,47 +1,47 @@
 import React from 'react';
 import './workoutList.css'
 import {useSelector} from "react-redux";
-import File from "./workout/File";
+import workout from "./workout/Workout";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 
 const WorkoutList = () => {
 
-    const files = useSelector(state => state.files.files)
-    const fileView = useSelector(state => state.files.view)
+    const workouts = useSelector(state => state.workouts.workouts)
+    const workoutView = useSelector(state => state.workouts.view)
 
-    if (files.length === 0) {
+    if (workouts.length === 0) {
         return (
             <div className='loader'>Файлы не найдены</div>
         )
     }
 
-    if (fileView === "plate") {
+    if (workoutView === "plate") {
         return (
-            <div className='fileplate'>
-                {files.map(file =>
-                    <File key={file._id} file={file}/>
+            <div className='workoutplate'>
+                {workouts.map(workout =>
+                    <workout key={workout._id} workout={workout}/>
                 )}
             </div>
         )
     }
 
-    if (fileView === 'list') {
+    if (workoutView === 'list') {
         return (
-            <div className='filelist'>
-                <div className="filelist__header">
-                    <div className="filelist__name">Название</div>
-                    <div className="filelist__date">Дата</div>
-                    <div className="filelist__size">Размер</div>
+            <div className='workoutlist'>
+                <div className="workoutlist__header">
+                    <div className="workoutlist__name">Название</div>
+                    <div className="workoutlist__date">Дата</div>
+                    <div className="workoutlist__size">Размер</div>
                 </div>
                 <TransitionGroup>
-                    {files.map(file =>
+                    {workouts.map(workout =>
                         <CSSTransition
-                            key={file._id}
+                            key={workout._id}
                             timeout={500}
-                            classNames={'file'}
+                            classNames={'workout'}
                             exit={false}
                         >
-                            <File file={file}/>
+                            <workout workout={workout}/>
                         </CSSTransition>
                     )}
                 </TransitionGroup>

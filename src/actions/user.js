@@ -25,7 +25,9 @@ export const login = (email, password) => {
             })
             dispatch(setUser(response.data.user))
             localStorage.setItem('token', response.data.token)
+            alert('login successfully passed')
         } catch (e) {
+            alert('login had some error')
             alert(e)
         }
     }
@@ -45,12 +47,12 @@ export const auth =  () => {
     }
 }
 
-export const uploadAvatar =  (file) => {
+export const uploadAvatar =  (workout) => {
     return async dispatch => {
         try {
             const formData = new FormData()
-            formData.append('file', file)
-            const response = await axios.post(`${API_URL}api/files/avatar`, formData,
+            formData.append('workout', workout)
+            const response = await axios.post(`${API_URL}api/workouts/avatar`, formData,
                 {headers:{Authorization:`Bearer ${localStorage.getItem('token')}`}}
             )
             dispatch(setUser(response.data))
@@ -63,7 +65,7 @@ export const uploadAvatar =  (file) => {
 export const deleteAvatar =  () => {
     return async dispatch => {
         try {
-            const response = await axios.delete(`${API_URL}api/files/avatar`,
+            const response = await axios.delete(`${API_URL}api/workouts/avatar`,
                 {headers:{Authorization:`Bearer ${localStorage.getItem('token')}`}}
             )
             dispatch(setUser(response.data))

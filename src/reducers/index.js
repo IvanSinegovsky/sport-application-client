@@ -9,7 +9,7 @@ import appReducer from "./appReducer";
 
 const rootReducer = combineReducers({
     user: userReducer,
-    files: workoutReducer,
+    workouts: workoutReducer,
     upload: uploadReducer,
     app: appReducer
 })

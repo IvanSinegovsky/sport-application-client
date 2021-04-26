@@ -1,42 +1,42 @@
-.file {
+.workout {
   margin: 10px 0;
   border-bottom: solid 2px #566885;
   display: grid;
   grid-template-columns: 1fr 4fr repeat(4, 1fr);
   align-items: center;
 }
-.file:hover {
+.workout:hover {
   transform: scale(1.02);
 }
-.file__img {
+.workout__img {
   justify-self: center;
 }
-.file__date {
+.workout__date {
   grid-column-start: 5;
   justify-self: center;
 }
-.file__size {
+.workout__size {
   grid-column-start: 6;
   justify-self: center;
 }
-.file__btn {
+.workout__btn {
   display: none;
 }
-.file:hover .file__date {
+.workout:hover .workout__date {
   grid-column-start: 3;
 }
-.file:hover .file__size {
+.workout:hover .workout__size {
   grid-column-start: 4;
 }
-.file:hover .file__download {
+.workout:hover .workout__download {
   grid-column-start: 5;
   display: block;
 }
-.file:hover .file__delete {
+.workout:hover .workout__delete {
   grid-column-start: 6;
   display: block;
 }
-.file-plate {
+.workout-plate {
   width: 150px;
   height: 150px;
   cursor: pointer;
@@ -44,14 +44,14 @@
   flex-direction: column;
   align-items: center;
 }
-.file-plate__img {
+.workout-plate__img {
   height: 100px;
   width: 100px;
 }
-.file-plate__btns {
+.workout-plate__btns {
   display: none;
 }
-.file-plate:hover .file-plate__btns {
+.workout-plate:hover .workout-plate__btns {
   display: flex;
 }
 /*# sourceMappingURL=workout.css.map */
