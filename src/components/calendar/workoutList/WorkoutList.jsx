@@ -11,7 +11,7 @@ const WorkoutList = () => {
 
     if (workouts.length === 0) {
         return (
-            <div className='loader'>Файлы не найдены</div>
+            <div className='loader'>Тренировки не найдены</div>
         )
     }
 

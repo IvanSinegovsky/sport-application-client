@@ -10,9 +10,9 @@ export const registration = async (firstName, lastName, email, password) => {
             email,
             password
         })
-        alert('registration passed');
+        alert(response.data.message)
     } catch (e) {
-        alert(e)
+        alert(e.response.data.message)
     }
 }
 
@@ -23,11 +23,12 @@ export const login = (email, password) => {
                 email,
                 password
             })
+            console.log(response.data)
+
             dispatch(setUser(response.data.user))
             localStorage.setItem('token', response.data.token)
             alert('login successfully passed')
         } catch (e) {
-            alert('login had some error')
             alert(e)
         }
     }

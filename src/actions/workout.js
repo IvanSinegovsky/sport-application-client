@@ -4,40 +4,34 @@ import {addUploadWorkout, changeUploadWorkout, showUploader} from "../reducers/u
 import {hideLoader, showLoader} from "../reducers/appReducer";
 import {API_URL} from "../config";
 
-export function getWorkouts(dayId, sort) {
+export function getWorkouts(currentDay) {
     return async dispatch => {
         try {
             dispatch(showLoader())
-            let url = `${API_URL}api/workouts`
-            if (dayId) {
-                url = `${API_URL}api/workouts?parent=${dayId}`
-            }
-            if (sort) {
-                url = `${API_URL}api/workouts?sort=${sort}`
-            }
-            if (dayId && sort) {
-                url = `${API_URL}api/workouts?parent=${dayId}&sort=${sort}`
-            }
+            let url = `${API_URL}api/v1/calendar/workouts`
+
             const response = await axios.get(url, {
-                headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
+                //headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
+                headers: {authorization: localStorage.getItem('token')}
             });
+            console.log(response.data)
+
+
+
             dispatch(setWorkouts(response.data))
         } catch (e) {
-            alert('getWorkouts() died')
-            alert(e.response.data.message)
+            alert('smd')
         } finally {
             dispatch(hideLoader())
         }
     }
 }
 
-export function createDay(dayId, name) {
+export function createDay(date) {
     return async dispatch => {
         try {
-            const response = await axios.post(`${API_URL}api/workouts`,{
-                name,
-                parent: dayId,
-                type: 'day'
+            const response = await axios.post(`${API_URL}api/v1/add`,{
+                parent: date,// todo change to workout object
             }, {
                 headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
             })

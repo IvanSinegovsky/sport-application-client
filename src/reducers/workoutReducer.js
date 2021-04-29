@@ -21,7 +21,7 @@ export default function workoutReducer(state = defaultState, action) {
         case ADD_WORKOUT: return {...state, workouts: [...state.workouts, action.payload]}
         case SET_POPUP_DISPLAY: return {...state, popupDisplay: action.payload}
         case PUSH_TO_STACK: return {...state, dayStack: [...state.dayStack, action.payload]}
-        case DELETE_WORKOUTS: return {...state, workouts: [...state.workouts.filter(workout => workout._id != action.payload)]}
+        case DELETE_WORKOUTS: return {...state, workouts: [...state.workouts.filter(workout => workout._id !== action.payload)]}
         case SET_VIEW: return {...state, view: action.payload}
         default:
             return state

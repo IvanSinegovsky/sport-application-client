@@ -12,12 +12,10 @@ const Calendar = () => {
     const currentDay = useSelector(state => state.workouts.currentDay)
     const loader = useSelector(state => state.app.loader)
     const dayStack = useSelector(state => state.workouts.dayStack)
-    const [dragEnter, setDragEnter] = useState(false)
-    const [sort, setSort] = useState('type')
 
     useEffect(() => {
-        dispatch(getWorkouts(currentDay, sort))
-    }, [currentDay, sort])
+        dispatch(getWorkouts(currentDay))
+    }, [currentDay])
 
     function showPopupHandler() {
         dispatch(setPopupDisplay('flex'))
@@ -33,26 +31,6 @@ const Calendar = () => {
         workouts.forEach(workout => dispatch(uploadWorkout(workout, currentDay)))
     }
 
-    function dragEnterHandler(event) {
-        event.preventDefault()
-        event.stopPropagation()
-        setDragEnter(true)
-    }
-
-    function dragLeaveHandler(event) {
-        event.preventDefault()
-        event.stopPropagation()
-        setDragEnter(false)
-    }
-
-    function dropHandler(event) {
-        event.preventDefault()
-        event.stopPropagation()
-        let workouts = [...event.dataTransfer.workouts]
-        workouts.forEach(workout => dispatch(uploadWorkout(workout, currentDay)))
-        setDragEnter(false)
-    }
-
     if(loader) {
         return (
             <div className="loader">
@@ -61,34 +39,18 @@ const Calendar = () => {
         )
     }
 
-    return ( !dragEnter ?
-            <div className="calendar" onDragEnter={dragEnterHandler} onDragLeave={dragLeaveHandler} onDragOver={dragEnterHandler}>
-                <div className="calendar__btns">
-                    <button className="calendar__back" onClick={() => backClickHandler()}>Назад</button>
-                    <button className="calendar__create" onClick={() => showPopupHandler()}>Создать папку</button>
-                    <div className="calendar__upload">
-                        <label htmlFor="calendar__upload-input" className="calendar__upload-label">Загрузить файл</label>
-                        <input multiple={true} onChange={(event)=> workoutUploadHandler(event)} type="workout" id="calendar__upload-input" className="calendar__upload-input"/>
-                    </div>
-                    <select value={sort}
-                            onChange={(e) => setSort(e.target.value)}
-                            className='calendar__select'>
-                        <option value="name">По имени</option>
-                        <option value="type">По типу</option>
-                        <option value="date">По дате</option>
-                    </select>
-                    <button className="calendar__plate" onClick={() => dispatch(setWorkoutView('plate'))}/>
-                    <button className="calendar__list" onClick={() => dispatch(setWorkoutView('list'))}/>
-                </div>
-                <WorkoutList/>
-                <Popup/>
-                <Uploader/>
+    return(
+        <div className="calendar">
+            <div className="calendar__btns">
+                <button className="calendar__back" onClick={() => backClickHandler()}>Назад</button>
+                <button className="calendar__plate" onClick={() => dispatch(setWorkoutView('plate'))}/>
+                <button className="calendar__list" onClick={() => dispatch(setWorkoutView('list'))}/>
             </div>
-            :
-            <div className="drop-area" onDrop={dropHandler} onDragEnter={dragEnterHandler} onDragLeave={dragLeaveHandler} onDragOver={dragEnterHandler}>
-                Перетащите файлы сюда
-            </div>
-    );
+            <WorkoutList/>
+            <Popup/>
+            <Uploader/>
+        </div>
+    )
 };
 
 export default Calendar;
