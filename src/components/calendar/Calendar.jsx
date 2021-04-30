@@ -3,6 +3,8 @@ import {useDispatch} from "react-redux";
 import {getWorkouts, createWorkout} from "../../actions/workout";
 import WorkoutList from "./workoutList/WorkoutList"
 import './calendar.css'
+import Popup from "./Popup";
+import {setPopupDisplay} from "../../reducers/workoutReducer";
 
 const Calendar = () => {
     const dispatch = useDispatch()
@@ -11,19 +13,17 @@ const Calendar = () => {
         dispatch(getWorkouts())
     }, [])
 
-    function addWorkoutHandler() {
-        dispatch(createWorkout('2021-04-30', [
-            { exerciseClassification: 'ANJUMANIA', weight: 14.88 },
-            { exerciseClassification: 'PRISEDANIYA', weight: 13.37 }
-        ]))
+    function showPopupHandler() {
+        dispatch(setPopupDisplay('flex'))
     }
 
     return (
         <div className="calendar">
-            <div className="workout__btns">
-                <button className="workout__create" onClick={() => addWorkoutHandler()}>Добавить тренировку</button>
+            <div className="calendar__btns">
+                <button className="calendar__create" onClick={() => showPopupHandler()}>Добавить тренировку</button>
             </div>
             <WorkoutList/>
+            <Popup/>
         </div>
     );
 };
