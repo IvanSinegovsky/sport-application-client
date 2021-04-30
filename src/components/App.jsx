@@ -1,13 +1,12 @@
 import React, {useEffect} from 'react';
 import Navbar from "./navbar/Navbar";
 import './app.css'
-import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
+import {BrowserRouter, Route, Switch, Redirect} from "react-router-dom";
 import Registration from "./authorization/Registration";
 import Login from "./authorization/Login";
 import {useDispatch, useSelector} from "react-redux";
 import {auth} from "../actions/user";
 import Calendar from "./calendar/Calendar";
-import Profile from "./profile/Profile";
 
 function App() {
     const isAuth = useSelector(state => state.user.isAuth)
@@ -32,7 +31,6 @@ function App() {
                         :
                         <Switch>
                             <Route exact path="/" component={Calendar}/>
-                            <Route exact path="/profile" component={Profile}/>
                             <Redirect to="/"/>
                         </Switch>
                     }
