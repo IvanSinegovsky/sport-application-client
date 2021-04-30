@@ -6,7 +6,7 @@ const Workout = ({workout}) => {
     return (
         <div className='workout'>
             <img src={dumbbell} alt="" className="workout__img"/>
-            <div className="workout__date">{workout.date.slice(0, 10)}</div>
+            <div className="workout__date">{workout.date.slice(4, 10)}</div>
         </div>
     );
 };
