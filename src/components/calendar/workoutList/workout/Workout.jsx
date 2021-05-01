@@ -2,7 +2,7 @@ import React from 'react';
 import './workout.css'
 import dumbbell from '../../../../assets/img/lildumbbell.jpg'
 import {deleteWorkout} from "../../../../actions/workout";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 const Workout = ({workout}) => {
     const dispatch = useDispatch()
