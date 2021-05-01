@@ -34,7 +34,7 @@ export const login =  (email, password) => {
 export const auth =  () => {
     return async dispatch => {
         try {
-            const response = await axios.get(`${API_URL}api/v1/auth/auth`,
+            const response = await axios.get(`${API_URL}/api/v1/auth/auth`,
                 {headers:{authorization:`${localStorage.getItem('token')}`}}
             )
             dispatch(setUser(response.data.token))

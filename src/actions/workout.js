@@ -1,6 +1,6 @@
 import axios from "axios";
 import {API_URL} from "../config";
-import {addWorkout, setWorkouts} from "../reducers/workoutReducer";
+import {addWorkout, deleteWorkoutAction, setWorkouts} from "../reducers/workoutReducer";
 
 export function getWorkouts() {
     return async dispatch => {
@@ -29,6 +29,20 @@ export function createWorkout(date, exercises) {
             console.log(response.data)
         } catch (e) {
             alert(e.response)
+        }
+    }
+}
+
+export function deleteWorkout(workout) {
+    return async dispatch => {
+        try {
+            console.log(workout.date)
+            const response = await axios.delete(`${API_URL}/api/v1/calendar/delete?date=${workout.date}`,{
+                headers: {Authorization: `${localStorage.getItem('token')}`}
+            });
+            dispatch(deleteWorkoutAction(workout.date))
+        } catch (e) {
+            alert(e?.response?.data?.message)
         }
     }
 }
