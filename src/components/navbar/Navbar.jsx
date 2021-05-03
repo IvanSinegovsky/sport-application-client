@@ -1,6 +1,6 @@
 import React from 'react';
 import './navbar.css'
-import Logo from '../../assets/img/navbar-logo.svg'
+import Logo from '../../assets/img/v2.png'
 import {NavLink} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {logout} from "../../reducers/userReducer";
@@ -13,9 +13,10 @@ const Navbar = () => {
         <div className="navbar">
             <div className="container">
                 <img src={Logo} alt="" className="navbar__logo"/>
-                <div className="navbar__header">sportplan</div>
                 {!isAuth && <div className="navbar__login"><NavLink to="/login">Войти</NavLink></div>}
                 {!isAuth && <div className="navbar__registration"><NavLink to="/registration">Регистрация</NavLink></div>}
+                {isAuth && <div className="navbar__login"><NavLink to="/graphs">Отследить прогресс</NavLink></div>}
+                {isAuth && <div className="navbar__login"><NavLink to="/">Список тренировок</NavLink></div>}
                 {isAuth && <div className="navbar__login" onClick={() => dispatch(logout())}>Выход</div>}
                 </div>
         </div>

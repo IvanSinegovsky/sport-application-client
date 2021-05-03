@@ -3,9 +3,11 @@ const ADD_WORKOUT = "ADD_WORKOUT"
 const SET_POPUP_DISPLAY = "SET_POPUP_DISPLAY"
 const DELETE_WORKOUT = "DELETE_WORKOUT"
 const SET_VIEW = "SET_VIEW"
+const SET_CLASSIFIED_WORKOUTS = "SET_CLASSIFIED_WORKOUTS"
 
 const defaultState = {
     workouts: [],
+    classifiedWorkouts: [],
     popupDisplay: 'none',
     view: 'list'
 }
@@ -19,6 +21,7 @@ export default function (state = defaultState, action) {
             workout => workout.date != action.payload
             )]}
         case SET_VIEW: return {...state, view: action.payload}
+        case SET_CLASSIFIED_WORKOUTS: return {...state, classifiedWorkouts: action.payload}
         default:
             return state
     }
@@ -30,3 +33,4 @@ export const addWorkout = (workout) =>({type: ADD_WORKOUT, payload: workout})
 export const setPopupDisplay = (display) =>({type: SET_POPUP_DISPLAY, payload: display})
 export const deleteWorkoutAction = (date) =>({type: DELETE_WORKOUT, payload: date})
 export const setWorkoutView = (payload) =>({type: SET_VIEW, payload})
+export const setClassifiedWorkouts = (classifiedWorkouts) =>({type: SET_CLASSIFIED_WORKOUTS, payload: classifiedWorkouts})

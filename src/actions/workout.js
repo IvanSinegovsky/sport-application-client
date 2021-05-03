@@ -1,6 +1,6 @@
 import axios from "axios";
 import {API_URL} from "../config";
-import {addWorkout, deleteWorkoutAction, setWorkouts} from "../reducers/workoutReducer";
+import {addWorkout, deleteWorkoutAction, setClassifiedWorkouts, setWorkouts} from "../reducers/workoutReducer";
 
 export function getWorkouts() {
     return async dispatch => {
@@ -9,7 +9,6 @@ export function getWorkouts() {
                 headers: {Authorization: `${localStorage.getItem('token')}`}
             });
             dispatch(setWorkouts(response.data))
-            console.log(response.data)
         } catch (e) {
             alert(e.response.data)
         }
@@ -43,6 +42,20 @@ export function deleteWorkout(workout) {
             dispatch(deleteWorkoutAction(workout.date))
         } catch (e) {
             alert(e?.response?.data?.message)
+        }
+    }
+}
+
+export function getClassifiedWorkouts() {
+    return async dispatch => {
+        try {
+            const response = await axios.get(`${API_URL}/api/v1/calendar/classified_workouts`, {
+                headers: {Authorization: `${localStorage.getItem('token')}`}
+            });
+            dispatch(setClassifiedWorkouts(response.data))
+            console.log(response.data)
+        } catch (e) {
+            alert(e.response.data)
         }
     }
 }

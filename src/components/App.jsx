@@ -3,6 +3,7 @@ import Navbar from "./navbar/Navbar";
 import './app.css'
 import {BrowserRouter, Route, Switch, Redirect} from "react-router-dom";
 import Registration from "./authorization/Registration";
+import Graph from "./graph/Graph";
 import Login from "./authorization/Login";
 import {useDispatch, useSelector} from "react-redux";
 import {auth} from "../actions/user";
@@ -30,6 +31,7 @@ function App() {
                         </Switch>
                         :
                         <Switch>
+                            <Route path="/graphs" component={Graph}/>
                             <Route exact path="/" component={Calendar}/>
                             <Redirect to="/"/>
                         </Switch>
