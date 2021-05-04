@@ -4,7 +4,6 @@ import './graph.css'
 import {getClassifiedWorkouts, getWorkouts} from "../../actions/workout";
 import Chart from "./Chart";
 const Graph = () => {
-    //const [classifiedWorkoutsData, setClassifiedWorkoutsDate] = useState(null)
     const dispatch = useDispatch()
     const classifiedWorkouts = useSelector(state => state.workout.classifiedWorkouts)
 
@@ -14,9 +13,6 @@ const Graph = () => {
 
     return (
         <div className="calendar">
-            <div className="calendar__btns">
-                yoo
-            </div>
             {
                 classifiedWorkouts ?
                 <Chart data={classifiedWorkouts}/>

@@ -9,6 +9,7 @@ export function getWorkouts() {
                 headers: {Authorization: `${localStorage.getItem('token')}`}
             });
             dispatch(setWorkouts(response.data))
+            console.log(response.data)
         } catch (e) {
             alert(e.response.data)
         }

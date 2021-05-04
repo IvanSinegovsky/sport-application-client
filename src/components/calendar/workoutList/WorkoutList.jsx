@@ -2,6 +2,7 @@ import React from 'react';
 import './workoutList.css'
 import {useSelector} from "react-redux";
 import Workout from "./workout/Workout";
+import CalendarPlate from "../calendarPlate/CalendarPlate.jsx";
 
 const WorkoutList = () => {
 
@@ -23,7 +24,7 @@ const WorkoutList = () => {
 
     if (fileView === 'plate') {
         return (
-            <div>calendar plug</div>
+            <CalendarPlate/>
         );
     }
 };

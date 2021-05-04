@@ -41,7 +41,7 @@ function Chart(classifiedWorkoutsArray) {
     };
     return (
         <div>
-            <h2>Line example</h2>
+            <h2>Exercises weight progress</h2>
             <Line data={chartData}/>
         </div>
     );

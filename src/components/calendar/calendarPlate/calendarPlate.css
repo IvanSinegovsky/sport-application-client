@@ -1,0 +1,53 @@
+/*todo change to .less*/
+.calendarPlate header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.calendarPlate header button,
+.calendarPlate header select {
+    margin: 0 4px;
+}
+
+.calendarPlate table {
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: auto;
+}
+
+.calendarPlate th {
+    vertical-align: middle;
+    text-align: center;
+    height: 36px;
+}
+
+.calendarPlate .day {
+    padding: 4px 8px;
+    vertical-align: middle;
+    text-align: center;
+    border: 2px solid transparent;
+}
+
+.calendarPlate .day:hover {
+    background-color: #eaeaea;
+    cursor: pointer;
+}
+
+.calendarPlate .day.selected {
+    border: 2px solid dodgerblue;
+}
+
+.calendarPlate .day.today {
+    background-color: dodgerblue;
+    color: white;
+}
+
+.calendarPlate .day.today:hover {
+    background-color: #0081ff;
+}
+
+.calendarPlate .day.today.selected {
+    border: 2px solid lightgray;
+}

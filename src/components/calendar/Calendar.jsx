@@ -3,7 +3,7 @@ import {useDispatch} from "react-redux";
 import {getWorkouts, createWorkout} from "../../actions/workout";
 import WorkoutList from "./workoutList/WorkoutList"
 import './calendar.css'
-import Popup from "./Popup";
+import Popup from "./popup/Popup";
 import {setPopupDisplay, setWorkoutView} from "../../reducers/workoutReducer";
 
 const Calendar = () => {

@@ -1,37 +1,29 @@
 import React, {useState} from 'react';
-import Input from "../../utils/input/Input";
 import {useDispatch, useSelector} from "react-redux";
-import {addWorkout, setPopupDisplay} from "../../reducers/workoutReducer";
-import {createWorkout} from "../../actions/workout";
-import Dropdown from "./dropdown";
+import {setPopupDisplay} from "../../../reducers/workoutReducer";
+import {createWorkout} from "../../../actions/workout";
+import ExerciseInputList from "./ExerciseInputList";
+import {decrement, increment} from "../../../reducers/popupReducer";
+import SelectDate from "./SelectDate";
 
 const Popup = () => {
     const [workoutDate, setWorkoutDate] = useState('')
     const popupDisplay = useSelector(state => state.workout.popupDisplay)
-   // const date = useSelector(state => state.workout.date)
     const dispatch = useDispatch()
 
-    //todo change names
-    const items = [
-        {
-            id: 1,
-            value: 'Pulp Fiction',
-        },
-        {
-            id: 2,
-            value: 'The Prestige',
-        },
-        {
-            id: 3,
-            value: 'Blade Runner 2049',
-        },
-    ];
-
-    function createHandler() {
+/*    function createHandler() {
         dispatch(createWorkout(workoutDate, [
             { exerciseClassification: 'ANJUMANIA', weight: 14.88 },
             { exerciseClassification: 'PRISEDANIYA', weight: 13.37 }
         ]))
+    }*/
+
+    function counterIncrement() {
+        dispatch(increment())
+    }
+
+    function counterDecrement() {
+        dispatch(decrement())
     }
 
     return (
@@ -41,9 +33,11 @@ const Popup = () => {
                         <div className="popup__title">Создать новую тренировку</div>
                     <button className="popup__close" onClick={() => dispatch(setPopupDisplay('none'))}>x</button>
                 </div>
-                <Input type="text" placeholder="Введите дату..." value={workoutDate} setValue={setWorkoutDate}/>
-                <Dropdown title="Select movie" items={items} multiSelect />
-                <button className="popup__create" onClick={() => createHandler()}>Создать</button>
+                <SelectDate/>
+                <ExerciseInputList/>
+                <button className="popup__create" onClick={() => counterIncrement()}>+</button>
+                <button className="popup__create" onClick={() => counterDecrement()}>-</button>
+                <button className="popup__create" onClick={() => createWorkout()}>Создать</button>
             </div>
         </div>
     );
