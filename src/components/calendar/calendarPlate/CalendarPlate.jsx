@@ -125,3 +125,10 @@ export default class CalendarPlate extends React.Component {
         );
     }
 }
+
+/*    handleDayClick = date => {
+        //todo save date to redux
+        this.setState({ selectedDate: date });
+        console.log(date)
+        this.props.onChange(date);
+    };*/

@@ -5,24 +5,21 @@ import {createWorkout} from "../../../actions/workout";
 import ExerciseInputList from "./ExerciseInputList";
 import {decrement, increment, setDate} from "../../../reducers/popupReducer";
 import Input from "../../../utils/input/Input";
+import CalendarPlate from "../calendarPlate/CalendarPlate.jsx";
 
 const Popup = () => {
     const dispatch = useDispatch()
     const popupDisplay = useSelector(state => state.workout.popupDisplay)
-    const [date, setLocalDate] = useState("")
-    //const date = useSelector(state => state.inputsCounter.date)
+    const date = useSelector(state => state.inputsCounter.date)
     const exercises = useSelector(state => state.inputsCounter.exercises)
 
-/*    function storeDate() {
-        dispatch(setDate(date))
-    }*/
+    let handleDayClick = date => storeDate(date);
 
-/*    function createHandler() {
-        dispatch(createWorkout(workoutDate, [
-            { exerciseClassification: 'ANJUMANIA', weight: 14.88 },
-            { exerciseClassification: 'PRISEDANIYA', weight: 13.37 }
-        ]))
-    }*/
+    function storeDate(date) {
+        date = date.toLocaleDateString()
+        date = date.toString().slice(6, 10) + '-' + date.toString().slice(3, 5) + '-' + date.toString().slice(0, 2)
+        dispatch(setDate(date))
+    }
 
     function counterIncrement() {
         dispatch(increment())
@@ -36,16 +33,16 @@ const Popup = () => {
         dispatch(createWorkout(date, exercises))
     }
 
+
     return (
-         <div className="popup" onClick={() => dispatch(setPopupDisplay('none'))} style={{display: popupDisplay}}>
+        <div className="popup" onClick={() => dispatch(setPopupDisplay('none'))} style={{display: popupDisplay}}>
             <div className="popup__content" onClick={(event => event.stopPropagation())}>
                 <div className="popup__header">
-                        <div className="popup__title">Создать новую тренировку</div>
+                    <div className="popup__title">Создать новую тренировку</div>
                     <button className="popup__close" onClick={() => dispatch(setPopupDisplay('none'))}>x</button>
                 </div>
-                <div>
-                    <Input value={date} setValue={setLocalDate} type="text" placeholder="Введите дату yyyy-MM-dd..."/>
-                </div>
+                {date && <p>Selected date: {date}</p>}
+                <CalendarPlate onChange={handleDayClick}/>
                 <ExerciseInputList/>
                 <button className="popup__create" onClick={() => counterIncrement()}>+</button>
                 <button className="popup__create" onClick={() => counterDecrement()}>-</button>

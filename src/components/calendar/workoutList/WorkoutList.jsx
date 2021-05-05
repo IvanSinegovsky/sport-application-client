@@ -10,23 +10,15 @@ const WorkoutList = () => {
     const workouts = useSelector(state => state.workout.workouts).map(workout => <Workout key={workout.id} workout={workout}/>)
     const fileView = useSelector(state => state.workout.view)
 
-    if (fileView === 'list') {
-        return (
-            <div className='workoutlist'>
-                <div className="workoutlist__header">
-                    <div className="workoutlist__name">Название</div>
-                    <div className="workoutlist__date">Дата</div>
-                </div>
-                {workouts}
+    return (
+        <div className='workoutlist'>
+            <div className="workoutlist__header">
+                <div className="workoutlist__name">Название</div>
+                <div className="workoutlist__date">Дата</div>
             </div>
-        );
-    }
-
-    if (fileView === 'plate') {
-        return (
-            <CalendarPlate/>
-        );
-    }
+            {workouts}
+        </div>
+    );
 };
 
 export default WorkoutList;
