@@ -12,6 +12,7 @@ export const registration = async (firstName, lastName, email, password) => {
         })
         alert(response.data.message)
     } catch (e) {
+        alert('some exception in registration() method')
         alert(e.response.data.message)
     }
 }
@@ -23,9 +24,10 @@ export const login =  (email, password) => {
                 email,
                 password
             })
-            dispatch(setUser(response.data.token))// setUser -> setToken (токен мы отдаем такую переменную на бэкенде в респонсэнтити)
             localStorage.setItem('token', response.data.token)
+            dispatch(setUser(response.data.token))
         } catch (e) {
+            alert('some exception in login() method')
             alert(e)
         }
     }

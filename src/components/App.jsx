@@ -31,8 +31,8 @@ function App() {
                         </Switch>
                         :
                         <Switch>
-                            <Route path="/graphs" component={Graph}/>
                             <Route exact path="/" component={Calendar}/>
+                            <Route path="/graphs" component={Graph}/>
                             <Redirect to="/"/>
                         </Switch>
                     }

@@ -5,12 +5,14 @@ import {addWorkout, deleteWorkoutAction, setClassifiedWorkouts, setWorkouts} fro
 export function getWorkouts() {
     return async dispatch => {
         try {
+
             const response = await axios.get(`${API_URL}/api/v1/calendar/workouts`, {
                 headers: {Authorization: `${localStorage.getItem('token')}`}
             });
             dispatch(setWorkouts(response.data))
             console.log(response.data)
         } catch (e) {
+            alert('some exception in getWorkouts() method')
             alert(e.response.data)
         }
     }
@@ -30,6 +32,7 @@ export function createWorkout(date, exercises) {
             dispatch(addWorkout(response.data))
             console.log(response.data)
         } catch (e) {
+            alert('some exception in createWorkout() method')
             alert(e.response)
         }
     }
@@ -44,6 +47,7 @@ export function deleteWorkout(workout) {
             });
             dispatch(deleteWorkoutAction(workout.date))
         } catch (e) {
+            alert('some exception in deleteWorkout() method')
             alert(e?.response?.data?.message)
         }
     }
@@ -58,6 +62,7 @@ export function getClassifiedWorkouts() {
             dispatch(setClassifiedWorkouts(response.data))
             console.log(response.data)
         } catch (e) {
+            alert('some exception in getClassifiedWorkouts() method')
             alert(e.response.data)
         }
     }
