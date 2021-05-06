@@ -19,10 +19,8 @@ const Workout = ({workout}) => {
 
     return (
         <div className='workout'>
-            <img src={dumbbell} alt="" className="workout__img"/>
-            <div className="workout__size">{exercises}</div>
+            <div className="workout__exercises">{exercises}</div>
             <div className="workout__date">{workout.date}</div>
-          {/*  <button onClick={(e) => deleteClickHandler(e)} className="workout__delete">Удалить тренировку</button>*/}
           <ButtonGroup>
             <Button className="workout__delete"
                     startIcon={<DeleteForeverIcon/>}

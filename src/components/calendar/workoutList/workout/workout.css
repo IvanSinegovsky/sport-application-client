@@ -1,6 +1,7 @@
 .workout {
-  margin: 10px 0;
+  margin: 30px 0;
   border-bottom: solid 2px #0D232B;
+  border-bottom-width: 3px;
   display: grid;
   grid-template-columns: 1fr 4fr repeat(4, 1fr);
   align-items: center;
@@ -15,8 +16,8 @@
   grid-column-start: 5;
   justify-self: center;
 }
-.workout__size {
-  grid-column-start: 2;
+.workout__exercises {
+  grid-column: 2;
   justify-self: center;
 }
 .workout__btn {
@@ -41,5 +42,9 @@
 }
 .workout:hover .workout__edit {
   grid-column-start: 7;
+}
+.exercise {
+  font-size: large;
+  line-height: 2em;
 }
 /*# sourceMappingURL=workout.css.map */

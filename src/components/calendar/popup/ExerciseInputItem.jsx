@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import Input from "../../../utils/input/Input";
-import {FormControl, InputLabel, MenuItem, Select, TextField} from "@material-ui/core";
+import {Button, FormControl, InputAdornment, InputLabel, MenuItem, Select, TextField} from "@material-ui/core";
 import {useDispatch} from "react-redux";
 import {addExercise} from "../../../reducers/popupReducer";
+import SaveIcon from "@material-ui/icons/Save";
+import CheckIcon from '@material-ui/icons/Check';
 
 const ExerciseInputItem = () => {
     const [weight, setWeight] = useState("")
@@ -28,8 +29,7 @@ const ExerciseInputItem = () => {
                 onChange={handleChange}
                 required="true"
                 style={{
-                    width: 130,
-                    height: 50
+                    width: 130
                 }}
             >
                 <MenuItem value='ANJUMANIA'>Anjumania</MenuItem>
@@ -37,6 +37,9 @@ const ExerciseInputItem = () => {
                 <MenuItem value='PRISEDANIYA'>Prisedaniya</MenuItem>
             </TextField>
             <TextField
+                InputProps={{
+                    endAdornment: <InputAdornment position='start'>kgs</InputAdornment>
+                }}
                 value={weight}
                 type="number"
                 required="true"
@@ -45,10 +48,15 @@ const ExerciseInputItem = () => {
                 helperText="Must be filled out"
                 onChange={handleWeightInputChange}
                 style={{
-                    height: 20
+                    width: 125
                 }}
             />
-            <button className="calendar__create" onClick={() => createExercise()}>Save</button>
+            <Button
+                startIcon={<SaveIcon/>}
+                checkedIcon={<CheckIcon/>}
+                variant="contained"
+                color="primary"
+                onClick={() => createExercise()}>Save</Button>
         </div>
     );
 };
