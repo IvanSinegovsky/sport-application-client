@@ -1,9 +1,12 @@
 import React from 'react';
-import './workout.css'
-import dumbbell from '../../../../assets/img/lildumbbell.jpg'
+import './workout.css';
+import dumbbell from '../../../../assets/img/lildumbbell.jpg';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import EditIcon from '@material-ui/icons/Edit';
 import {deleteWorkout} from "../../../../actions/workout";
 import {useDispatch, useSelector} from "react-redux";
 import Exercise from "./Exercise";
+import {Button, ButtonGroup, Icon} from "@material-ui/core";
 
 const Workout = ({workout}) => {
     const dispatch = useDispatch()
@@ -17,9 +20,17 @@ const Workout = ({workout}) => {
     return (
         <div className='workout'>
             <img src={dumbbell} alt="" className="workout__img"/>
-            <div className="workout__date">{exercises}</div>
+            <div className="workout__size">{exercises}</div>
             <div className="workout__date">{workout.date}</div>
-            <button onClick={(e) => deleteClickHandler(e)} className="workout__delete">Удалить тренировку</button>
+          {/*  <button onClick={(e) => deleteClickHandler(e)} className="workout__delete">Удалить тренировку</button>*/}
+          <ButtonGroup>
+            <Button className="workout__delete"
+                    startIcon={<DeleteForeverIcon/>}
+                    onClick={(e) => deleteClickHandler(e)}>Delete</Button>
+            <Button className="workout__edit"
+                    startIcon={<EditIcon/>}
+                    onClick={(e) => {/*todo*/}/*deleteClickHandler(e)*/}>Edit</Button>
+          </ButtonGroup>
         </div>
     );
 };

@@ -1,9 +1,11 @@
 input {
+  font-size: medium;
   border: none;
-  border-bottom: #566885 solid 3px;
+  border-bottom: #FCFCFB solid 3px;
   background: transparent;
   width: 100%;
-  padding: 3px;
+  padding: 5px;
+  color: #FCFCFB;
 }
 input:focus {
   outline: none;
@@ -11,22 +13,22 @@ input:focus {
 }
 ::-webkit-input-placeholder {
   /* Chrome */
-  color: #566885;
+  color: #FCFCFB;
   font-weight: 700;
 }
 :-ms-input-placeholder {
   /* IE 10+ */
-  color: #566885;
+  color: #FCFCFB;
   font-weight: 700;
 }
 ::-moz-placeholder {
   /* Firefox 19+ */
-  color: #566885;
+  color: #FCFCFB;
   font-weight: 700;
 }
 :-moz-placeholder {
   /* Firefox 4 - 18 */
-  color: #566885;
+  color: #FCFCFB;
   font-weight: 700;
 }
 /*# sourceMappingURL=input.css.map */

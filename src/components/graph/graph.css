@@ -11,7 +11,7 @@
   display: none;
 }
 .calendar__upload-label {
-  border: 2px dashed #566885;
+  border: 2px dashed #0D232B;
   padding: 5px 10px;
   cursor: pointer;
   margin-left: 10px;
@@ -40,7 +40,7 @@
   width: 100%;
   height: calc(100vh - 50px - 40px);
   margin: 20px;
-  border: dashed #566885 2px;
+  border: dashed #0D232B 2px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -95,8 +95,8 @@
   height: 64px;
   margin: 8px;
   border-radius: 50%;
-  border: 6px solid #566885;
-  border-color: #566885 transparent #566885 transparent;
+  border: 6px solid #0D232B;
+  border-color: #0D232B transparent #0D232B transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
 @keyframes lds-dual-ring {

@@ -1,13 +1,14 @@
 .authorization {
+  color: #FCFCFB;
   display: flex;
   flex-direction: column;
   width: 500px;
   align-items: center;
-  background-color: white;
-  border-radius: 20px;
-  padding: 30px;
+  background-color: #216B72;
+  border-radius: 7px;
+  padding: 50px;
   align-self: center;
-  margin-top: 100px;
+  margin-top: 170px;
 }
 .authorization__header {
   font-size: 30px;
@@ -18,12 +19,12 @@
 }
 .authorization__btn {
   border: none;
-  background-color: #566885;
+  background-color: #0D232B;
   border-radius: 8px;
-  color: white;
+  color: #FCFCFB;
   font-weight: 700;
   padding: 5px 10px;
   align-self: flex-end;
-  margin-top: 10px;
+  margin-top: 14px;
 }
 /*# sourceMappingURL=authorization.css.map */

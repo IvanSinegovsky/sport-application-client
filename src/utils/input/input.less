@@ -1,11 +1,13 @@
 @import "../colors";
 
 input {
+  font-size: medium;
   border: none;
-  border-bottom: @font-color solid 3px;
+  border-bottom: @color4 solid 3px;
   background: transparent;
   width: 100%;
-  padding: 3px;
+  padding: 5px;
+  color: @color4;
   &:focus {
     outline: none;
     transform: scale(1.01);
@@ -14,18 +16,18 @@ input {
 
 
 ::-webkit-input-placeholder { /* Chrome */
-  color: @font-color;
+  color: @color4;
   font-weight: 700;
 }
 :-ms-input-placeholder { /* IE 10+ */
-  color: @font-color;
+  color: @color4;
   font-weight: 700;
 }
 ::-moz-placeholder { /* Firefox 19+ */
-  color: @font-color;
+  color: @color4;
   font-weight: 700;
 }
 :-moz-placeholder { /* Firefox 4 - 18 */
-  color: @font-color;
+  color: @color4;
   font-weight: 700;
 }

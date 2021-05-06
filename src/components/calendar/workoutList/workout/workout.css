@@ -1,56 +1,45 @@
 .workout {
-    margin: 10px 0;
-    border-bottom: solid 2px #566885;
-    display: grid;
-    grid-template-columns: 1fr 4fr repeat(4, 1fr);
-    align-items: center;
+  margin: 10px 0;
+  border-bottom: solid 2px #0D232B;
+  display: grid;
+  grid-template-columns: 1fr 4fr repeat(4, 1fr);
+  align-items: center;
 }
 .workout:hover {
-    transform: scale(1.02);
+  transform: scale(1.02);
 }
 .workout__img {
-    justify-self: center;
+  justify-self: center;
 }
 .workout__date {
-    grid-column-start: 5;
-    justify-self: center;
+  grid-column-start: 5;
+  justify-self: center;
 }
 .workout__size {
-    grid-column-start: 6;
-    justify-self: center;
+  grid-column-start: 2;
+  justify-self: center;
 }
 .workout__btn {
-    display: none;
+  display: none;
 }
-.workout:hover .file__date {
-    grid-column-start: 3;
+.workout__delete {
+  grid-column-start: 6;
+  justify-self: center;
 }
-.workout:hover .file__size {
-    grid-column-start: 4;
+.workout__edit {
+  grid-column-start: 7;
+  justify-self: center;
 }
-.workout:hover .file__download {
-    grid-column-start: 5;
-    display: block;
+.workout:hover .workout__date {
+  grid-column-start: 5;
 }
-.workout:hover .file__delete {
-    grid-column-start: 6;
-    display: block;
+.workout:hover .workout__size {
+  grid-column-start: 2;
 }
-.workout-plate {
-    width: 150px;
-    height: 150px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.workout:hover .workout__delete {
+  grid-column-start: 6;
 }
-.workout-plate__img {
-    height: 100px;
-    width: 100px;
+.workout:hover .workout__edit {
+  grid-column-start: 7;
 }
-.workout-plate__btns {
-    display: none;
-}
-.workout-plate:hover .workout-plate__btns {
-    display: flex;
-}
+/*# sourceMappingURL=workout.css.map */
