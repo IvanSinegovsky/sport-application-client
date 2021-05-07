@@ -5,6 +5,8 @@ import WorkoutList from "./workoutList/WorkoutList"
 import './calendar.css'
 import Popup from "./popup/Popup";
 import {setPopupDisplay} from "../../reducers/workoutReducer";
+import {Button, ButtonGroup} from "@material-ui/core";
+import EditIcon from "@material-ui/icons/Edit";
 
 const Calendar = () => {
     const dispatch = useDispatch()
@@ -20,7 +22,8 @@ const Calendar = () => {
     return (
         <div className="calendar">
             <div className="calendar__btns">
-                <button className="calendar__create" onClick={() => showPopupHandler()}>Добавить тренировку</button>
+                <Button startIcon={<EditIcon/>}
+                        onClick={() => showPopupHandler()}>Add workout</Button>
             </div>
             <WorkoutList/>
             <Popup/>
