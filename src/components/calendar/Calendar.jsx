@@ -7,6 +7,7 @@ import Popup from "./popup/Popup";
 import {setPopupDisplay} from "../../reducers/workoutReducer";
 import {Button, ButtonGroup} from "@material-ui/core";
 import EditIcon from "@material-ui/icons/Edit";
+import ProgressBar from "../progress/ProgressBar";
 
 const Calendar = () => {
     const dispatch = useDispatch()
@@ -25,6 +26,7 @@ const Calendar = () => {
                 <Button startIcon={<EditIcon/>}
                         onClick={() => showPopupHandler()}>Add workout</Button>
             </div>
+            <ProgressBar done="70"/>
             <WorkoutList/>
             <Popup/>
         </div>

@@ -9,6 +9,7 @@ import DateRangeIcon from '@material-ui/icons/DateRange';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import GitHubIcon from '@material-ui/icons/GitHub';
+import TrackChangesIcon from '@material-ui/icons/TrackChanges';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -29,7 +30,6 @@ const navbarButtonStyle={
 }
 
 const Navbar = () => {
-    const history = useHistory();
     const isAuth = useSelector(state => state.user.isAuth)
     const dispatch = useDispatch()
     const classes = useStyles();
@@ -39,6 +39,10 @@ const Navbar = () => {
         window.location.assign(path);
     }
 
+    function handleSetAGoal() {
+
+    }
+
     return (
         <div className="navbar">
             <AppBar position="fixed"
@@ -46,11 +50,12 @@ const Navbar = () => {
                         background: '#273E4C'
                     }}>
                 <Toolbar>
-                    <Typography variant="h6" className={classes.title}>
-                        sportplan
-                    </Typography>
+                    <Typography variant="h6" className={classes.title}>SPORTPLAN</Typography>
                     {!isAuth && <Button color="inherit"><NavLink to="/login" style={navbarButtonStyle}>Login</NavLink></Button>}
                     {!isAuth && <Button color="inherit"><NavLink to="/registration" style={navbarButtonStyle}>Register</NavLink></Button>}
+                    {isAuth && <Button color="inherit"
+                                       onClick={handleSetAGoal}
+                                       startIcon={<TrackChangesIcon/>}>Set a goal</Button>}
                     {isAuth && <Button color="inherit"
                                        startIcon={<TrendingUpIcon/>}><NavLink to="/graphs" style={navbarButtonStyle}>Workouts monitoring</NavLink></Button>}
                     {isAuth && <Button color="inherit"

@@ -1,0 +1,33 @@
+@import "../../utils/colors";
+
+body {
+    box-sizing: border-box;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.progress {
+    background-color: @color5;
+    border-radius: 20px;
+    position: relative;
+    margin: 15px 0;
+    height: 30px;
+    width: 300px;
+}
+
+.progress-done {
+    background: linear-gradient(to left, @color7, @color8);
+    box-shadow: 0 3px 3px -5px @color3, 0 2px 5px @color2;
+    border-radius: 20px;
+    color: @color4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 0;
+    opacity: 0;
+    transition: 1s ease 0.3s;
+}

@@ -28,12 +28,13 @@ const Workout = ({workout}) => {
     return (
         <div>
             <Card>
-                <CardHeader/>
+                <Typography color="textSecondary"
+                            gutterBottom
+                            style={{marginTop: 10, marginLeft: 17}}>
+                    {workout.date}
+                </Typography>
                 <CardContent>
-                    <Typography color="textSecondary" gutterBottom>
-                        {workout.date}
-                    </Typography>
-                    <Typography variant="h5" component="h2">
+                    <Typography variant="h4" component="h2">
                         {exercises}
                     </Typography>
                     <Typography color="textSecondary">
