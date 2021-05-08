@@ -35,8 +35,8 @@ const Navbar = () => {
     const classes = useStyles();
     const path = `https://github.com/IvanSinegovsky/sport-application-client/tree/development`;
 
-    const routeChange = () =>{
-        history.push(path);
+    function redirect() {
+        window.location.assign(path);
     }
 
     return (
@@ -57,7 +57,7 @@ const Navbar = () => {
                                        startIcon={<DateRangeIcon/>}><NavLink to="/" style={navbarButtonStyle}>Workouts list</NavLink></Button>}
                     {isAuth && <IconButton edge="end"
                                            aria-haspopup="true"
-                                           onClick={routeChange}
+                                           onClick={redirect}
                                            color="inherit">
                             <GitHubIcon/>
                         </IconButton>}
