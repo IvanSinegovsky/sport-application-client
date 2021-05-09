@@ -38,7 +38,7 @@ const Workout = ({workout}) => {
                         {exercises}
                     </Typography>
                     <Typography color="textSecondary">
-                        Workout notes plug
+                        {workout.description}
                     </Typography>
                 </CardContent>
                 <CardActions>

@@ -1,5 +1,6 @@
 import ExerciseInputItem from "./ExerciseInputItem";
 import {useSelector} from "react-redux";
+import DescriptionInputItem from "./DescriptionInputItem";
 
 export default function ExerciseInputList() {
     const inputsCounter = useSelector(state => state.inputsCounter.counter)
@@ -10,6 +11,7 @@ export default function ExerciseInputList() {
             <div>
                 <ExerciseInputItem />
             </div>)}
+            <DescriptionInputItem/>
         </div>
     )
 }

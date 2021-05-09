@@ -18,14 +18,13 @@ export function getWorkouts() {
     }
 }
 
-export function createWorkout(date, exercises) {
+export function createWorkout(date, exercises, description) {
     return async dispatch => {
         try {
-            console.log(date)
-            console.log(exercises)
             const response = await axios.post(`${API_URL}/api/v1/calendar/add`, {
                 date,
-                exercises
+                exercises,
+                description
             }, {
                 headers: {Authorization: `${localStorage.getItem('token')}`}
             });

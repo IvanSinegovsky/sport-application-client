@@ -4,7 +4,6 @@ import {setPopupDisplay} from "../../../reducers/workoutReducer";
 import {createWorkout} from "../../../actions/workout";
 import ExerciseInputList from "./ExerciseInputList";
 import {decrement, increment, setDate} from "../../../reducers/popupReducer";
-import Input from "../../../utils/input/Input";
 import CalendarPlate from "../calendarPlate/CalendarPlate.jsx";
 
 const Popup = () => {
@@ -12,6 +11,7 @@ const Popup = () => {
     const popupDisplay = useSelector(state => state.workout.popupDisplay)
     const date = useSelector(state => state.inputsCounter.date)
     const exercises = useSelector(state => state.inputsCounter.exercises)
+    const description = useSelector(state => state.inputsCounter.description)
 
     let handleDayClick = date => storeDate(date);
 
@@ -30,7 +30,7 @@ const Popup = () => {
     }
 
     function createHandler() {
-        dispatch(createWorkout(date, exercises))
+        dispatch(createWorkout(date, exercises, description))
     }
 
 
