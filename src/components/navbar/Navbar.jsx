@@ -10,6 +10,7 @@ import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import TrackChangesIcon from '@material-ui/icons/TrackChanges';
+import SetAGoalDialog from "../calendar/popup/SetAGoalDialog.js";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -30,6 +31,8 @@ const navbarButtonStyle={
 }
 
 const Navbar = () => {
+    const [goal, setGoal] = useState("")
+    const [open, setOpen] = useState(false)
     const isAuth = useSelector(state => state.user.isAuth)
     const dispatch = useDispatch()
     const classes = useStyles();
@@ -39,10 +42,18 @@ const Navbar = () => {
         window.location.assign(path);
     }
 
-    function handleSetAGoal() {
-
+    const handleClickOpen = () => {
+        setOpen(true)
     }
 
+    function handleSetAGoal() {
+        SetAGoalDialog();
+    }
+
+    const handleClose = (value) => {
+        setOpen(false)
+        setGoal(value)
+    }
     return (
         <div className="navbar">
             <AppBar position="fixed"
@@ -54,8 +65,11 @@ const Navbar = () => {
                     {!isAuth && <Button color="inherit"><NavLink to="/login" style={navbarButtonStyle}>Login</NavLink></Button>}
                     {!isAuth && <Button color="inherit"><NavLink to="/registration" style={navbarButtonStyle}>Register</NavLink></Button>}
                     {isAuth && <Button color="inherit"
-                                       onClick={handleSetAGoal}
+                                       onClick={handleClickOpen}
                                        startIcon={<TrackChangesIcon/>}>Set a goal</Button>}
+                    {isAuth && <SetAGoalDialog goal={goal}
+                                               open={open}
+                                               onClose={handleClose}>Set a goal</SetAGoalDialog>}
                     {isAuth && <Button color="inherit"
                                        startIcon={<TrendingUpIcon/>}><NavLink to="/graphs" style={navbarButtonStyle}>Workouts monitoring</NavLink></Button>}
                     {isAuth && <Button color="inherit"

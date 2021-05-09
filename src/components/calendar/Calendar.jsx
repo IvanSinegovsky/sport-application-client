@@ -22,11 +22,11 @@ const Calendar = () => {
 
     return (
         <div className="calendar">
+            <ProgressBar done="70"/>
             <div className="calendar__btns">
                 <Button startIcon={<EditIcon/>}
                         onClick={() => showPopupHandler()}>Add workout</Button>
             </div>
-            <ProgressBar done="70"/>
             <WorkoutList/>
             <Popup/>
         </div>
