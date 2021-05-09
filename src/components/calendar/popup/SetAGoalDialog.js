@@ -21,7 +21,7 @@ export default function SetAGoalDialog(props) {
     const dispatch = useDispatch()
 
     function handleSave() {
-        createGoal(exerciseClassification, expectedWeight)
+        dispatch(createGoal(exerciseClassification, expectedWeight))
     }
 
     const handleChange = event => setExerciseClassification(event.target.value)
@@ -73,7 +73,7 @@ export default function SetAGoalDialog(props) {
                             checkedIcon={<CheckIcon/>}
                             variant="contained"
                             color="primary"
-                            onClick={() => handleSave}>Save</Button>
+                            onClick={() => handleSave()}>Save</Button>
                     </div>
                 </DialogContent>
             </Dialog>
