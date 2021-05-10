@@ -5,7 +5,6 @@ import {addWorkout, deleteWorkoutAction, setClassifiedWorkouts, setWorkouts} fro
 export function getWorkouts() {
     return async dispatch => {
         try {
-
             const response = await axios.get(`${API_URL}/api/v1/calendar/workouts`, {
                 headers: {Authorization: `${localStorage.getItem('token')}`}
             });

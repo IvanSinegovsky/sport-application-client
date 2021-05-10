@@ -24,7 +24,6 @@ export default function (state = defaultState, action) {
     }
 }
 
-//экшны
 export const setWorkouts = (workouts) => ({type: SET_WORKOUTS, payload: workouts})
 export const addWorkout = (workout) =>({type: ADD_WORKOUT, payload: workout})
 export const setPopupDisplay = (display) =>({type: SET_POPUP_DISPLAY, payload: display})

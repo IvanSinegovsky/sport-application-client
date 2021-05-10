@@ -1,7 +1,7 @@
 import axios from "axios";
 import {API_URL} from "../config";
 import {addWorkout, setWorkouts} from "../reducers/workoutReducer";
-import {addGoal} from "../reducers/goalReducer";
+import {addGoal, setGoals} from "../reducers/goalReducer";
 
 export function getGoals() {
     return async dispatch => {
@@ -9,8 +9,7 @@ export function getGoals() {
             const response = await axios.get(`${API_URL}/api/v1/goal/goals`, {
                 headers: {Authorization: `${localStorage.getItem('token')}`}
             });
-            dispatch(setWorkouts(response.data))
-            //todo add to redux
+            dispatch(setGoals(response.data))
             console.log(response.data)
         } catch (e) {
             alert('some exception in getGoals() method')
