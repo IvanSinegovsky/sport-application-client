@@ -7,26 +7,19 @@ import exerciseClassificationFormat from "../../utils/exerciseClassificationForm
 const Goal = ({goals}) => {
     return (
         <div>
-                <Card style={{marginLeft: 10}}>
-                    <Grid container spacing={2}>
-                    <Typography color="textPrimary"
-                                gutterBottom
-                                style={{marginTop: 15, marginLeft: 17}}>
-                        Your goals fulfillment:
-                    </Typography>
-                    <CardContent>
+            <Card style={{background: "#ffde7f"}}>
+                    <Grid container style={{marginTop: 10}}>
                     {
                         goals.map(goal => (
-                            <Grid item>
+                            <Grid item style={{marginLeft:20}}>
                                 <Typography color="textSecondary">
                                     {exerciseClassificationFormat(goal.exerciseClassification)}:
                                 </Typography>
                                 <ProgressBar done={(goal.fulfillingInPercents * 100).toString().slice(0, 4)}/>
                             </Grid>))
                     }
-                    </CardContent>
                 </Grid>
-                </Card>
+            </Card>
         </div>
     );
 };

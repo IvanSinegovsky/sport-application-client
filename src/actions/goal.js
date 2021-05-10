@@ -21,9 +21,10 @@ export function getGoals() {
 export function createGoal(exerciseClassification, weight) {
     return async dispatch => {
         try {
+            console.log('weeee' + weight)
             const response = await axios.post(`${API_URL}/api/v1/goal/add`, {
-                exerciseClassification,
-                weight
+                exerciseClassification: exerciseClassification,
+                weight: weight
             }, {
                 headers: {Authorization: `${localStorage.getItem('token')}`}
             });

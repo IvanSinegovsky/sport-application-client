@@ -25,7 +25,10 @@ export default function SetAGoalDialog(props) {
     }
 
     const handleChange = event => setExerciseClassification(event.target.value)
-    const handleWeightInputChange = event => setExpectedWeight(event.target.value)
+    const handleWeightInputChange = event => {
+        setExpectedWeight(event.target.value)
+        console.log(expectedWeight)
+    }
     const handleClose = () => {onClose()}
 
     return (
