@@ -31,7 +31,6 @@ const navbarButtonStyle={
 }
 
 const Navbar = () => {
-    const [goal, setGoal] = useState("")
     const [open, setOpen] = useState(false)
     const isAuth = useSelector(state => state.user.isAuth)
     const dispatch = useDispatch()
@@ -46,13 +45,8 @@ const Navbar = () => {
         setOpen(true)
     }
 
-    function handleSetAGoal() {
-        SetAGoalDialog();
-    }
-
-    const handleClose = (value) => {
+    const handleClose = () => {
         setOpen(false)
-        setGoal(value)
     }
     return (
         <div className="navbar">
@@ -67,8 +61,7 @@ const Navbar = () => {
                     {isAuth && <Button color="inherit"
                                        onClick={handleClickOpen}
                                        startIcon={<TrackChangesIcon/>}>Set a goal</Button>}
-                    {isAuth && <SetAGoalDialog goal={goal}
-                                               open={open}
+                    {isAuth && <SetAGoalDialog open={open}
                                                onClose={handleClose}>Set a goal</SetAGoalDialog>}
                     {isAuth && <Button color="inherit"
                                        startIcon={<TrendingUpIcon/>}><NavLink to="/graphs" style={navbarButtonStyle}>Workouts monitoring</NavLink></Button>}
