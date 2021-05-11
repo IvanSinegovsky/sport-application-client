@@ -6,7 +6,7 @@ import exerciseClassificationFormat from "../../utils/exerciseClassificationForm
 
 const Goal = ({goals}) => {
     return (
-        <div>
+        <div style={{marginTop: 35}}>
             <Card style={{background: "#ffde7f"}}>
                     <Grid container style={{marginTop: 10}}>
                     {
