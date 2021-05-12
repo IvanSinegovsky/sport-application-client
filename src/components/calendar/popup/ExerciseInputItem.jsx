@@ -28,9 +28,7 @@ const ExerciseInputItem = () => {
                 value={exerciseClassification}
                 onChange={handleChange}
                 required="true"
-                style={{
-                    width: 130
-                }}
+                style={{width: 200, paddingRight: 20}}
             >
                 <MenuItem value='ANJUMANIA'>Anjumania</MenuItem>
                 <MenuItem value='PRESS_KATCHAT'>Press katchat</MenuItem>
@@ -43,20 +41,16 @@ const ExerciseInputItem = () => {
                 value={weight}
                 type="number"
                 required="true"
-                variant="outlined"
                 label="Greatest weight"
-                helperText="Must be filled out"
                 onChange={handleWeightInputChange}
-                style={{
-                    width: 125
-                }}
+                style={{width: 200, paddingRight: 20, paddingBottom: 10}}
             />
             <Button
                 startIcon={<SaveIcon/>}
-                checkedIcon={<CheckIcon/>}
                 variant="contained"
                 color="primary"
-                onClick={() => createExercise()}>Save</Button>
+                onClick={() => createExercise()}
+                style={{marginTop: 15}}>Save</Button>
         </div>
     );
 };

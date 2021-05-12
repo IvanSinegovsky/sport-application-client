@@ -11,7 +11,6 @@ export default function ExerciseInputList() {
             <div>
                 <ExerciseInputItem />
             </div>)}
-            <DescriptionInputItem/>
         </div>
     )
 }

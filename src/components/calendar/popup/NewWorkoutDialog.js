@@ -15,6 +15,7 @@ import {createGoal} from "../../../actions/goal";
 import CalendarPlate from "../calendarPlate/CalendarPlate.jsx";
 import ExerciseInputList from "./ExerciseInputList";
 import {createWorkout} from "../../../actions/workout";
+import DescriptionInputItem from "./DescriptionInputItem";
 
 
 export default function SetAGoalDialog(props) {
@@ -42,7 +43,8 @@ export default function SetAGoalDialog(props) {
     return (
         <div>
             <Dialog onClose={handleClose}
-                    open={open}>
+                    open={open}
+                    >
                 <DialogTitle>
                     <Typography variant="h6" component="div" style={{ flexGrow: 1 }}>
                         Create new workout {date}
@@ -53,16 +55,16 @@ export default function SetAGoalDialog(props) {
                     <div>
                         <ExerciseInputList/>
                         <Button
-                            variant="contained"
                             color="primary"
-                            onClick={() => counterIncrement()}>+</Button>
+                            onClick={() => counterIncrement()}
+                            style={{marginLeft: "37%", fontSize: 30}}>+</Button>
                         <Button
-                            variant="contained"
                             color="primary"
-                            onClick={() => counterDecrement()}>-</Button>
+                            onClick={() => counterDecrement()}
+                            style={{fontSize: 30}}>-</Button>
+                        <DescriptionInputItem/>
                         <Button
                             startIcon={<SaveIcon/>}
-                            checkedIcon={<CheckIcon/>}
                             variant="contained"
                             color="primary"
                             onClick={() => createHandler()}>Save</Button>

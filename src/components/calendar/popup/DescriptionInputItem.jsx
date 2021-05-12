@@ -16,13 +16,13 @@ const DescriptionInputItem = () => {
     return (
         <div>
             <TextField
+                multiline
+                rows={4}
                 variant="outlined"
                 label="Workout description"
                 value={workoutDescription}
                 onChange={handleDescriptionInputChange}
-                style={{
-                    width: 125
-                }}
+                style={{marginTop: 15, marginBottom: 15, marginLeft: 10, width: 470}}
             />
         </div>
     );
