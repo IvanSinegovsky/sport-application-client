@@ -39,6 +39,12 @@ export default function SetAGoalDialog(props) {
     function counterIncrement() {dispatch(increment())}
     function counterDecrement() {dispatch(decrement())}
     function createHandler() {dispatch(createWorkout(date, exercises, description))}
+    function isDisabled() {
+        if (date == null || exercises.length === 0) {
+            return true;
+        }
+        return false;
+    }
 
     return (
         <div>
@@ -64,6 +70,7 @@ export default function SetAGoalDialog(props) {
                             style={{fontSize: 30}}>-</Button>
                         <DescriptionInputItem/>
                         <Button
+                            disabled={isDisabled()}
                             startIcon={<SaveIcon/>}
                             variant="contained"
                             color="primary"

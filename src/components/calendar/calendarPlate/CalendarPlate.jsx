@@ -4,13 +4,17 @@ import classnames from 'classnames';
 import * as calendarPlate from './calendarPlate';
 
 import './calendarPlate.css';
+import Button from "@material-ui/core/Button";
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
+import {Menu, MenuItem, TextField} from "@material-ui/core";
 
 export default class CalendarPlate extends React.Component {
     static defaultProps = {
         date: new Date(),
         years: [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021],
-        monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-        weekDayNames: ['Пн', 'Вт', 'Ср', 'Чт' , 'Пт', 'Сб', 'Вс'],
+        monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        weekDayNames: ['Mon', 'Tue', 'Wen', 'Thu' , 'Fri', 'Sat', 'San'],
         onChange: Function.prototype
     };
 
@@ -44,14 +48,19 @@ export default class CalendarPlate extends React.Component {
         this.setState({ date });
     };
 
-    handleSelectChange = () => {
-        const year = this.yearSelect.value;
-        const month = this.monthSelect.value;
-
-        const date = new Date(year, month);
-
+    handleMonthSelectChange = (event) => {
+        const month = event.target.value;
+        const date = new Date(this.year, month);
         this.setState({ date });
     };
+
+    handleYearSelectChange = (event) => {
+        const year = event.target.value;
+        const date = new Date(year, this.month);
+        this.setState({ date });
+    };
+
+
 
     handleDayClick = date => {
         this.setState({ selectedDate: date });
@@ -68,29 +77,37 @@ export default class CalendarPlate extends React.Component {
         return (
             <div className="calendarPlate">
                 <header>
-                    <button onClick={this.handlePrevMonthButtonClick}>{'<'}</button>
+                    <Button
+                        onClick={this.handlePrevMonthButtonClick}
+                        startIcon={<NavigateBeforeIcon/>}/>
 
-                    <select
+                    <TextField
                         ref={element => this.monthSelect = element}
+                        select
                         value={this.month}
-                        onChange={this.handleSelectChange}
+                        onChange={this.handleMonthSelectChange}
+                        style={{marginRight: 5}}
                     >
                         {monthNames.map((name, index) =>
-                            <option key={name} value={index}>{name}</option>
+                            <MenuItem key={index} value={index}>{name}</MenuItem>
                         )}
-                    </select>
+                    </TextField>
 
-                    <select
+                    <TextField
                         ref={element => this.yearSelect = element}
+                        select
                         value={this.year}
-                        onChange={this.handleSelectChange}
+                        onChange={this.handleYearSelectChange}
+                        style={{marginLeft: 5}}
                     >
                         {years.map(year =>
-                            <option key={year} value={year}>{year}</option>
+                            <MenuItem key={year} value={year}>{year}</MenuItem>
                         )}
-                    </select>
+                    </TextField>
 
-                    <button onClick={this.handleNextMonthButtonClick}>{'>'}</button>
+                    <Button
+                        onClick={this.handleNextMonthButtonClick}
+                        startIcon={<NavigateNextIcon/>}/>
                 </header>
 
                 <table>
