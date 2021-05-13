@@ -17,14 +17,14 @@ import {createGoal} from "../../../actions/goal";
 export default function SetAGoalDialog(props) {
     const {onClose, selectedValue, open} = props;
     const [expectedWeight, setExpectedWeight] = useState("")
-    const [exerciseClassification, setExerciseClassification] = useState("")
+    const [exerciseClassificationName, setExerciseClassificationName] = useState("")
     const dispatch = useDispatch()
 
     function handleSave() {
-        dispatch(createGoal(exerciseClassification, expectedWeight))
+        dispatch(createGoal(exerciseClassificationName, expectedWeight))
     }
 
-    const handleChange = event => setExerciseClassification(event.target.value)
+    const handleChange = event => setExerciseClassificationName(event.target.value)
     const handleWeightInputChange = event => {
         setExpectedWeight(event.target.value)
         console.log(expectedWeight)
@@ -45,16 +45,17 @@ export default function SetAGoalDialog(props) {
                         <TextField
                             label="Exercise classification"
                             select
-                            value={exerciseClassification}
+                            value={exerciseClassificationName}
                             onChange={handleChange}
                             required="true"
                             style={{
                                 width: 130
                             }}
                         >
-                            <MenuItem value='ANJUMANIA'>Anjumania</MenuItem>
-                            <MenuItem value='PRESS_KATCHAT'>Press katchat</MenuItem>
-                            <MenuItem value='PRISEDANIYA'>Prisedaniya</MenuItem>
+                            {/*todo to array of items like in calendarplate*/}
+                            <MenuItem value='BARBELL_BENCH_PRESS'>BARBELL_BENCH_PRESS</MenuItem>
+                            <MenuItem value='BENT-OVER_ROW'>BENT-OVER_ROW</MenuItem>
+                            <MenuItem value='CALF_RAISE'>CALF_RAISE</MenuItem>
                         </TextField>
                         <TextField
                             InputProps={{

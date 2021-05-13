@@ -5,7 +5,7 @@ import exerciseClassificationFormat from "../../../../utils/exerciseClassificati
 const Exercise = ({exercise}) => {
     return (
         <div className="exercise">
-            <div>{exerciseClassificationFormat(exercise.exerciseClassification)} - {exercise.weight} kgs</div>
+            <div>{exerciseClassificationFormat(exercise.exerciseClassificationName)} - {exercise.weight} kgs</div>
         </div>
     );
 };

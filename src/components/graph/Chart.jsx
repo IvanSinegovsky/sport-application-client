@@ -11,7 +11,7 @@ function Chart(classifiedWorkoutsArray) {
         labels,
         datasets: [
             {
-                label: 'ANJUMANIYA',
+                label: 'BARBELL_BENCH_PRESS',
                 backgroundColor: 'rgba(0,0,255,0.2)',
                 borderColor: 'rgba(0,0,255,1)',
                 borderWidth: 1,
@@ -20,7 +20,7 @@ function Chart(classifiedWorkoutsArray) {
                 data: label1,
             },
             {
-                label: 'PRESS_KATCHAT',
+                label: 'BENT-OVER_ROW',
                 backgroundColor: 'rgba(0,255,0,0.2)',
                 borderColor: 'rgba(0,255,0,1)',
                 borderWidth: 1,
@@ -29,7 +29,7 @@ function Chart(classifiedWorkoutsArray) {
                 data: label2,
             },
             {
-                label: 'PRISEDANIYA',
+                label: 'CALF_RAISE',
                 backgroundColor: 'rgba(255,0,0,0.2)',
                 borderColor: 'rgba(255,0,0,1)',
                 borderWidth: 1,

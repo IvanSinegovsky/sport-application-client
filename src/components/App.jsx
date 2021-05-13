@@ -8,6 +8,7 @@ import Login from "./authorization/Login";
 import {useDispatch, useSelector} from "react-redux";
 import {auth} from "../actions/user";
 import Calendar from "./calendar/Calendar";
+import {getClassifiedWorkouts} from "../actions/classifiedWorkout";
 
 function App() {
     const isAuth = useSelector(state => state.user.isAuth)
@@ -16,6 +17,10 @@ function App() {
     useEffect(() => {
         dispatch(auth())
     }, [])
+
+    useEffect(() => {
+        dispatch(getClassifiedWorkouts())
+    })
 
 
     return (

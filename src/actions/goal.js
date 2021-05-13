@@ -1,6 +1,5 @@
 import axios from "axios";
 import {API_URL} from "../config";
-import {addWorkout, setWorkouts} from "../reducers/workoutReducer";
 import {addGoal, setGoals} from "../reducers/goalReducer";
 
 export function getGoals() {
@@ -18,12 +17,11 @@ export function getGoals() {
     }
 }
 
-export function createGoal(exerciseClassification, weight) {
+export function createGoal(exerciseClassificationName, weight) {
     return async dispatch => {
         try {
-            console.log('weeee' + weight)
             const response = await axios.post(`${API_URL}/api/v1/goal/add`, {
-                exerciseClassification: exerciseClassification,
+                exerciseClassificationName: exerciseClassificationName,
                 weight: weight
             }, {
                 headers: {Authorization: `${localStorage.getItem('token')}`}

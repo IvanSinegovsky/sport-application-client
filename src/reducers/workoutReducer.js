@@ -16,7 +16,7 @@ export default function (state = defaultState, action) {
         case ADD_WORKOUT: return {...state, workouts: [...state.workouts, action.payload]} //дословно про кейс: изменяем массив файлов, в котором разворачиваем старый массив, в старый массив добавляется один элемент из экшна - добавленная тренировка
         case SET_POPUP_DISPLAY: return {...state, popupDisplay: action.payload}
         case DELETE_WORKOUT: return {...state, workouts: [...state.workouts.filter(
-            workout => workout.date != action.payload
+            workout => workout.date !== action.payload
             )]}
         case SET_CLASSIFIED_WORKOUTS: return {...state, classifiedWorkouts: action.payload}
         default:

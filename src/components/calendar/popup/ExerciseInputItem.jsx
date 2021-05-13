@@ -6,16 +6,16 @@ import DoneIcon from '@material-ui/icons/Done';
 
 const ExerciseInputItem = () => {
     const [weight, setWeight] = useState("")
-    const [exerciseClassification, setExerciseClassification] = useState("")
+    const [exerciseClassificationName, setExerciseClassificationName] = useState("")
     const [isButtonDisabled, setIsButtonDisabled] = useState(false)
     const dispatch = useDispatch()
 
     function createExercise() {
         setIsButtonDisabled(true)
-        dispatch(addExercise({exerciseClassification: exerciseClassification, weight: weight}))
+        dispatch(addExercise({exerciseClassificationName: exerciseClassificationName, weight: weight}))
     }
 
-    const handleChange = event => setExerciseClassification(event.target.value)
+    const handleChange = event => setExerciseClassificationName(event.target.value)
     const handleWeightInputChange = event => {
         setWeight(event.target.value)
     }
@@ -25,14 +25,15 @@ const ExerciseInputItem = () => {
             <TextField
                 label="Exercise classification"
                 select
-                value={exerciseClassification}
+                value={exerciseClassificationName}
                 onChange={handleChange}
                 required="true"
                 style={{width: 200, paddingRight: 20}}
             >
-                <MenuItem value='ANJUMANIA'>Anjumania</MenuItem>
-                <MenuItem value='PRESS_KATCHAT'>Press katchat</MenuItem>
-                <MenuItem value='PRISEDANIYA'>Prisedaniya</MenuItem>
+                {/*todo to array of items like in calendarplate*/}
+                <MenuItem value='BARBELL_BENCH_PRESS'>BARBELL_BENCH_PRESS</MenuItem>
+                <MenuItem value='BENT-OVER_ROW'>BENT-OVER_ROW</MenuItem>
+                <MenuItem value='CALF_RAISE'>CALF_RAISE</MenuItem>
             </TextField>
             <TextField
                 InputProps={{

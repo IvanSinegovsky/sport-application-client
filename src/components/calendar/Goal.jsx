@@ -15,7 +15,7 @@ const Goal = ({goals}) => {
                                 <Typography color="textSecondary">
                                     {exerciseClassificationFormat(goal.exerciseClassification)}:
                                 </Typography>
-                                <ProgressBar done={(goal.fulfillingInPercents * 100).toString().slice(0, 4)}/>
+                                <ProgressBar done={(goal.fulfillingInPercents).toString().slice(0, 4)}/>
                             </Grid>))
                     }
                 </Grid>
