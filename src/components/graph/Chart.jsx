@@ -7,6 +7,8 @@ function Chart(classifiedWorkoutsArray) {
     let label2 = classifiedWorkoutsArray.data[2];
     let label3 = classifiedWorkoutsArray.data[3];
 
+    console.log('output4' + labels)
+
     const chartData = {
         labels,
         datasets: [
