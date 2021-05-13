@@ -9,7 +9,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import {InputAdornment, makeStyles, MenuItem, Typography} from "@material-ui/core";
 import SaveIcon from "@material-ui/icons/Save";
 import CheckIcon from "@material-ui/icons/Check";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {addExercise} from "../../../reducers/popupReducer";
 import {createGoal} from "../../../actions/goal";
 
@@ -18,6 +18,7 @@ export default function SetAGoalDialog(props) {
     const {onClose, selectedValue, open} = props;
     const [expectedWeight, setExpectedWeight] = useState("")
     const [exerciseClassificationName, setExerciseClassificationName] = useState("")
+    const exercisesClassifications = useSelector(state => state.exerciseClassification.exercisesClassifications)
     const dispatch = useDispatch()
 
     function handleSave() {
@@ -52,10 +53,9 @@ export default function SetAGoalDialog(props) {
                                 width: 130
                             }}
                         >
-                            {/*todo to array of items like in calendarplate*/}
-                            <MenuItem value='BARBELL_BENCH_PRESS'>BARBELL_BENCH_PRESS</MenuItem>
-                            <MenuItem value='BENT-OVER_ROW'>BENT-OVER_ROW</MenuItem>
-                            <MenuItem value='CALF_RAISE'>CALF_RAISE</MenuItem>
+                            {exercisesClassifications.map((name, index) =>
+                                <MenuItem key={name} value={name}>{name}</MenuItem>
+                            )}
                         </TextField>
                         <TextField
                             InputProps={{
