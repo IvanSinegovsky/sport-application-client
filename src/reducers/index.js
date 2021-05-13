@@ -6,7 +6,7 @@ import appReducer from "./appReducer";
 import workoutReducer from "./workoutReducer";
 import popupReducer from "./popupReducer";
 import goalReducer from "./goalReducer";
-import workoutClassificationReducer from "./WorkoutClassificationReducer";
+import exerciseClassificationReducer from "./exerciseClassificationReducer";
 
 const rootReducer = combineReducers({
     user: userReducer,
@@ -14,7 +14,7 @@ const rootReducer = combineReducers({
     workout: workoutReducer,
     inputsCounter: popupReducer,
     goal: goalReducer,
-    workoutClassification: workoutClassificationReducer
+    exerciseClassification: exerciseClassificationReducer
 })
 
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))

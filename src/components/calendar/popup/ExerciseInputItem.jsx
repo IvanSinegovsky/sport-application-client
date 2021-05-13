@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Button, FormControl, InputAdornment, InputLabel, MenuItem, Select, TextField} from "@material-ui/core";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {addExercise} from "../../../reducers/popupReducer";
 import DoneIcon from '@material-ui/icons/Done';
 
@@ -9,6 +9,7 @@ const ExerciseInputItem = () => {
     const [exerciseClassificationName, setExerciseClassificationName] = useState("")
     const [isButtonDisabled, setIsButtonDisabled] = useState(false)
     const dispatch = useDispatch()
+    const exercisesClassifications = useSelector(state => state.exerciseClassification.exercisesClassifications)
 
     function createExercise() {
         setIsButtonDisabled(true)
@@ -30,10 +31,9 @@ const ExerciseInputItem = () => {
                 required="true"
                 style={{width: 200, paddingRight: 20}}
             >
-                {/*todo to array of items like in calendarplate*/}
-                <MenuItem value='BARBELL_BENCH_PRESS'>BARBELL_BENCH_PRESS</MenuItem>
-                <MenuItem value='BENT-OVER_ROW'>BENT-OVER_ROW</MenuItem>
-                <MenuItem value='CALF_RAISE'>CALF_RAISE</MenuItem>
+                {exercisesClassifications.map((name, index) =>
+                    <MenuItem key={name} value={name}>{name}</MenuItem>
+                )}
             </TextField>
             <TextField
                 InputProps={{
