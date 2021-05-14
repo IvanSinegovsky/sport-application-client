@@ -13,7 +13,7 @@ const defaultState = {
 export default function (state = defaultState, action) {
     switch (action.type) {
         case SET_WORKOUTS: return {...state, workouts: action.payload}
-        case ADD_WORKOUT: return {...state, workouts: [...state.workouts, action.payload]} //дословно про кейс: изменяем массив файлов, в котором разворачиваем старый массив, в старый массив добавляется один элемент из экшна - добавленная тренировка
+        case ADD_WORKOUT: return {...state, workouts: [...state.workouts, action.payload]}
         case SET_POPUP_DISPLAY: return {...state, popupDisplay: action.payload}
         case DELETE_WORKOUT: return {...state, workouts: [...state.workouts.filter(
             workout => workout.date !== action.payload

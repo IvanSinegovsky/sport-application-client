@@ -10,7 +10,7 @@ import {InputAdornment, makeStyles, MenuItem, Typography} from "@material-ui/cor
 import SaveIcon from "@material-ui/icons/Save";
 import CheckIcon from "@material-ui/icons/Check";
 import {useDispatch, useSelector} from "react-redux";
-import {addExercise, decrement, increment, setDate} from "../../../reducers/popupReducer";
+import {addExercise, clearWorkoutCreating, decrement, increment, setDate} from "../../../reducers/popupReducer";
 import {createGoal} from "../../../actions/goal";
 import CalendarPlate from "../calendarPlate/CalendarPlate.jsx";
 import ExerciseInputList from "./ExerciseInputList";
@@ -38,7 +38,11 @@ export default function SetAGoalDialog(props) {
 
     function counterIncrement() {dispatch(increment())}
     function counterDecrement() {dispatch(decrement())}
-    function createHandler() {dispatch(createWorkout(date, exercises, description))}
+
+    function createHandler() {
+        dispatch(createWorkout(date, exercises, description))
+        dispatch(clearWorkoutCreating())
+    }
     function isDisabled() {
         if (date == null || exercises.length === 0) {
             return true;
