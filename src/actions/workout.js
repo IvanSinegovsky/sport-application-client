@@ -63,3 +63,17 @@ export function getClassifiedWorkouts() {
         }
     }
 }
+
+export function getCurrentClassifiedWorkouts(exerciseClassification) {
+    return async dispatch => {
+        try {
+            const response = await axios.get(`${API_URL}/api/v1/calendar/current_classified_workouts?exerciseClassification=${exerciseClassification}`, {
+                headers: {Authorization: `${localStorage.getItem('token')}`}
+            });
+            dispatch(setClassifiedWorkouts(response.data))
+        } catch (e) {
+            alert('some exception in getClassifiedWorkouts() method')
+            alert(e.response.data)
+        }
+    }
+}
