@@ -30,7 +30,7 @@ const Calendar = () => {
 
     return (
         <div>
-            <Goal goals={goals}/>
+            {goals !== "" &&  <Goal goals={goals}/>}
             <div>
                 <Button variant="outlined"
                         color="secondary"

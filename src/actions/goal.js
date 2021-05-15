@@ -11,8 +11,7 @@ export function getGoals() {
             dispatch(setGoals(response.data))
             console.log(response.data)
         } catch (e) {
-            alert('some exception in getGoals() method')
-            alert(e.response.data)
+            alert('You have not set goals in exercises yet')
         }
     }
 }

@@ -8,7 +8,7 @@ export function getClassifiedWorkouts() {
             const response = await axios.get(`${API_URL}/api/v1/classification/exercises_classifications`);
             dispatch(setWorkoutsClassification(response.data))
         } catch (e) {
-            alert(e.response.data)
+            console.log(e)
         }
     }
 }
