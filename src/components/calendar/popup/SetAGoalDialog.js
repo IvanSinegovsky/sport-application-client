@@ -49,9 +49,7 @@ export default function SetAGoalDialog(props) {
                             value={exerciseClassificationName}
                             onChange={handleChange}
                             required="true"
-                            style={{
-                                width: 130
-                            }}
+                            style={{width: 200, paddingRight: 20}}
                         >
                             {exercisesClassifications.map((name, index) =>
                                 <MenuItem key={name} value={name}>{name}</MenuItem>
@@ -64,19 +62,16 @@ export default function SetAGoalDialog(props) {
                             value={expectedWeight}
                             type="number"
                             required="true"
-                            variant="outlined"
                             label="Greatest weight"
                             helperText="Must be filled out"
                             onChange={handleWeightInputChange}
-                            style={{
-                                width: 125
-                            }}
+                            style={{width: 200, paddingRight: 20, paddingBottom: 10}}
                         />
                         <Button
                             startIcon={<SaveIcon/>}
                             checkedIcon={<CheckIcon/>}
-                            variant="contained"
                             color="primary"
+                            style={{marginTop: 15}}
                             onClick={() => handleSave()}>Save</Button>
                     </div>
                 </DialogContent>

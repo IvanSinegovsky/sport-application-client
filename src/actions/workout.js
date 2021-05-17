@@ -77,3 +77,16 @@ export function getCurrentClassifiedWorkouts(exerciseClassification) {
         }
     }
 }
+
+export function getUserWorkoutsDates() {
+    return async dispatch => {
+        try {
+            const response = await axios.get(`${API_URL}/api/v1/calendar/workouts_dates}`, {
+                headers: {Authorization: `${localStorage.getItem('token')}`}
+            });
+            return response.data;
+        } catch (e) {
+            console.log('cant get users workouts dates')
+        }
+    }
+}

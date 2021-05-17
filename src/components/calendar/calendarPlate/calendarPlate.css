@@ -39,6 +39,10 @@
     border: 2px solid dodgerblue;
 }
 
+.calendarPlate .dates.passed {
+    border: 10px solid #1e90ff;
+}
+
 .calendarPlate .day.today {
     background-color: dodgerblue;
     color: white;
