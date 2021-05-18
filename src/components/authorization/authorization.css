@@ -1,10 +1,10 @@
 .authorization {
-  color: #FCFCFB;
+  color: #C2F8CB;
   display: flex;
   flex-direction: column;
   width: 500px;
   align-items: center;
-  background-color: #216B72;
+  background-color: #B3E9C7;
   border-radius: 7px;
   padding: 50px;
   align-self: center;
@@ -19,9 +19,9 @@
 }
 .authorization__btn {
   border: none;
-  background-color: #0D232B;
+  background-color: #5603AD;
   border-radius: 8px;
-  color: #FCFCFB;
+  color: #C2F8CB;
   font-weight: 700;
   padding: 5px 10px;
   align-self: flex-end;

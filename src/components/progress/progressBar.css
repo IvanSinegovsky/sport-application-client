@@ -7,7 +7,7 @@ body {
   margin: 0;
 }
 .progress {
-  background-color: #859181;
+  background-color: #F0FFF1;
   border-radius: 20px;
   position: relative;
   margin: 15px 0;
@@ -16,9 +16,9 @@ body {
 }
 .progress-done {
   background: linear-gradient(to left, #57ff2e, #58d200);
-  box-shadow: 0 3px 3px -5px #216B72, 0 2px 5px #273E4C;
+  box-shadow: 0 3px 3px -5px #B3E9C7, 0 2px 5px #8367C7;
   border-radius: 20px;
-  color: #FCFCFB;
+  color: #C2F8CB;
   display: flex;
   align-items: center;
   justify-content: center;

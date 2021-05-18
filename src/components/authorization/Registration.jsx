@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './authorization.css'
-import Input from "../../utils/input/Input";
-import {registration} from "../../actions/user";
+import {login, registration} from "../../actions/user";
+import {Button, TextField, Typography} from "@material-ui/core";
 
 const Registration = () => {
     const [email, setEmail] = useState("")
@@ -9,16 +9,59 @@ const Registration = () => {
     const [firstName, setFirstname] = useState("")
     const [lastName, setLastname] = useState("")
 
-    // TODO REPEAT PASSWORD FIELD AND MATCH IT
+    const handleFirstNameChange = event => {
+        setFirstname(event.target.value)
+    }
+
+    const handleLastNameChange = event => {
+        setLastname(event.target.value)
+    }
+
+    const handleEmailChange = event => {
+        setEmail(event.target.value)
+    }
+
+    const handlePasswordChange = event => {
+        setPassword(event.target.value)
+    }
+
     return (
         <div className='authorization'>
-            <div className="authorization__header">Регистрация</div>
-            <Input value={firstName} setValue={setFirstname} type="text" placeholder="Введите имя..."/>
-            <Input value={lastName} setValue={setLastname} type="text" placeholder="Введите фамилию..."/>
-            <Input value={email} setValue={setEmail} type="text" placeholder="Введите email..."/>
-            <Input value={password} setValue={setPassword} type="password" placeholder="Введите пароль..."/>
-            <button className="authorization__btn" onClick={() => registration(firstName, lastName, email, password)}>
-                Зарегистрироваться</button>
+            <Typography variant="h4" component="div" style={{ flexGrow: 1 }}>
+                Sign up
+            </Typography>
+            <TextField
+                value={firstName}
+                required="true"
+                label="Firstname"
+                onChange={handleFirstNameChange}
+                style={{width: 400, paddingBottom: 10}}
+            />
+            <TextField
+                value={lastName}
+                required="true"
+                label="Lastname"
+                onChange={handleLastNameChange}
+                style={{width: 400, paddingBottom: 10}}
+            />
+            <TextField
+                value={email}
+                required="true"
+                label="Email"
+                onChange={handleEmailChange}
+                style={{width: 400, paddingBottom: 10}}
+            />
+            <TextField
+                value={password}
+                type="password"
+                required="true"
+                label="Password"
+                onChange={handlePasswordChange}
+                style={{width: 400, paddingBottom: 40}}
+            />
+            <Button variant="contained"
+                    color="primary"
+                    onClick={() => registration(firstName, lastName, email, password)}>Sign up</Button>
         </div>
     );
 };

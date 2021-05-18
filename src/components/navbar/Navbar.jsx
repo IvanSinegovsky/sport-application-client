@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import './navbar.css'
-import Logo from '../../assets/img/v2.png'
 import {NavLink, Route, useHistory} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {logout} from "../../reducers/userReducer";

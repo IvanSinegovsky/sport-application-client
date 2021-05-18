@@ -1,6 +1,5 @@
 import React from 'react';
 import './workout.css';
-import dumbbell from '../../../../assets/img/lildumbbell.jpg';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import EditIcon from '@material-ui/icons/Edit';
 import {deleteWorkout} from "../../../../actions/workout";
