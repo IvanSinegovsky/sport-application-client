@@ -7,12 +7,12 @@ import exerciseClassificationFormat from "../../utils/exerciseClassificationForm
 const Goal = ({goals}) => {
     return (
         <div style={{marginTop: 35}}>
-            <Card style={{background: "#ffde7f"}}>
+            <Card style={{background: "#5603AD"}}>
                     <Grid container style={{marginTop: 10}}>
                     {
                         goals.map(goal => (
                             <Grid item style={{marginLeft:20}}>
-                                <Typography color="textSecondary">
+                                <Typography style={{color: "#F0FFF1"}}>
                                     {exerciseClassificationFormat(goal.exerciseClassification)}:
                                 </Typography>
                                 <ProgressBar done={(goal.fulfillingInPercents).toString().slice(0, 4)}/>

@@ -43,8 +43,8 @@ const Workout = ({workout}) => {
                 <CardActions>
                     <Button startIcon={<DeleteForeverIcon/>}
                             onClick={(e) => deleteClickHandler(e)}/>
-                    <Button startIcon={<EditIcon/>}
-                            onClick={(e) => {/*todo*/}/*deleteClickHandler(e)*/}/>
+                    {/*<Button startIcon={<EditIcon/>}
+                            onClick={(e) => deleteClickHandler(e)}/>*/}
                 </CardActions>
             </Card>
         </div>

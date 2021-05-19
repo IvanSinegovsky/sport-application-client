@@ -38,7 +38,7 @@ const Login = () => {
                 style={{width: 400, paddingBottom: 40}}
             />
             <Button variant="contained"
-                    color="primary"
+                    color="white"
                     onClick={() => dispatch(login(email, password))}>Sign in</Button>
         </div>
     );

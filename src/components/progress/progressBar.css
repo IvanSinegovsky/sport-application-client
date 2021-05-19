@@ -15,10 +15,10 @@ body {
   width: 300px;
 }
 .progress-done {
-  background: linear-gradient(to left, #57ff2e, #58d200);
+  background: linear-gradient(to left, #C2F8CB, #B3E9C7);
   box-shadow: 0 3px 3px -5px #B3E9C7, 0 2px 5px #8367C7;
   border-radius: 20px;
-  color: #C2F8CB;
+  color: #000000;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -8,6 +8,7 @@ import AddIcon from '@material-ui/icons/Add';
 import Goal from "./Goal";
 import {getGoals} from "../../actions/goal";
 import NewWorkoutDialog from "../calendar/popup/NewWorkoutDialog.js";
+import {Switch} from "react-router-dom";
 
 const Calendar = () => {
     const dispatch = useDispatch()
@@ -30,7 +31,7 @@ const Calendar = () => {
 
     return (
         <div>
-            {goals !== "" &&  <Goal goals={goals}/>}
+            {goals !== "" ? <Switch><Goal goals={goals}/></Switch> : <Switch><div style={{marginTop: 20}}>No goals yet</div></Switch>}
             <div>
                 <Button variant="outlined"
                         color="secondary"

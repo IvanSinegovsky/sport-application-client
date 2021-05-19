@@ -51,7 +51,7 @@ const Navbar = () => {
         <div className="navbar">
             <AppBar position="fixed"
                     style={{
-                        background: '#273E4C'
+                        background: '#8367C7'
                     }}>
                 <Toolbar>
                     <Typography variant="h6" className={classes.title}>SPORTPLAN</Typography>

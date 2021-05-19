@@ -60,7 +60,7 @@ const Registration = () => {
                 style={{width: 400, paddingBottom: 40}}
             />
             <Button variant="contained"
-                    color="primary"
+                    color="white"
                     onClick={() => registration(firstName, lastName, email, password)}>Sign up</Button>
         </div>
     );
