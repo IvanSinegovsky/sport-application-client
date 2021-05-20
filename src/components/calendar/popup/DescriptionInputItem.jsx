@@ -1,9 +1,7 @@
 import React, {useState} from 'react';
-import {Button, FormControl, InputAdornment, InputLabel, MenuItem, Select, TextField} from "@material-ui/core";
+import {TextField} from "@material-ui/core";
 import {useDispatch} from "react-redux";
-import {addExercise, setDescription} from "../../../reducers/popupReducer";
-import SaveIcon from "@material-ui/icons/Save";
-import CheckIcon from '@material-ui/icons/Check';
+import {setDescription} from "../../../reducers/popupReducer";
 
 const DescriptionInputItem = () => {
     const [workoutDescription, setWorkoutDescription] = useState("")

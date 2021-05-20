@@ -7,7 +7,7 @@ import './calendarPlate.css';
 import Button from "@material-ui/core/Button";
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
-import {Menu, MenuItem, TextField} from "@material-ui/core";
+import {MenuItem, TextField} from "@material-ui/core";
 
 export default class CalendarPlate extends React.Component {
     static defaultProps = {

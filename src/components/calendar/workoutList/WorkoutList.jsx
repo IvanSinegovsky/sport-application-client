@@ -5,6 +5,7 @@ import Workout from "./workout/Workout";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import {Switch} from "react-router-dom";
+
 const WorkoutList = () => {
     const workouts = useSelector(state => state.workout.workouts)
 

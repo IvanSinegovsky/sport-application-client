@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './authorization.css'
 import {useDispatch} from "react-redux";
 import {login} from "../../actions/user";
-import {Button, InputAdornment, MenuItem, TextField, Typography} from "@material-ui/core";
+import {Button, TextField, Typography} from "@material-ui/core";
 
 const Login = () => {
     const [email, setEmail] = useState("")

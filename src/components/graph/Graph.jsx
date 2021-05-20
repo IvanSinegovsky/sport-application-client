@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import './graph.css'
-import {getClassifiedWorkouts, getCurrentClassifiedWorkouts, getWorkouts} from "../../actions/workout";
+import {getCurrentClassifiedWorkouts} from "../../actions/workout";
 import Chart from "./Chart";
 import {MenuItem, TextField} from "@material-ui/core";
+
 const Graph = () => {
     const dispatch = useDispatch()
     const [exerciseClassificationName, setExerciseClassificationName] = useState("")

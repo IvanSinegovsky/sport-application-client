@@ -1,19 +1,10 @@
 import React from 'react';
 import './workout.css';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import EditIcon from '@material-ui/icons/Edit';
 import {deleteWorkout} from "../../../../actions/workout";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import Exercise from "./Exercise";
-import {
-    Button,
-    Card,
-    CardActions,
-    CardContent,
-    CardHeader,
-    makeStyles,
-    Typography
-} from "@material-ui/core";
+import {Button, Card, CardActions, CardContent, Typography} from "@material-ui/core";
 
 const Workout = ({workout}) => {
     const dispatch = useDispatch()

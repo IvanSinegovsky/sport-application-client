@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
-import {Button, FormControl, InputAdornment, InputLabel, MenuItem, Select, TextField} from "@material-ui/core";
+import {Button, InputAdornment, MenuItem, TextField} from "@material-ui/core";
 import {useDispatch, useSelector} from "react-redux";
 import {addExercise} from "../../../reducers/popupReducer";
 import DoneIcon from '@material-ui/icons/Done';
+import exerciseClassificationFormat from "../../../utils/exerciseClassificationFormat";
+
 
 const ExerciseInputItem = () => {
     const [weight, setWeight] = useState("")
@@ -32,7 +34,7 @@ const ExerciseInputItem = () => {
                 style={{width: 200, paddingRight: 20}}
             >
                 {exercisesClassifications.map((name, index) =>
-                    <MenuItem key={name} value={name}>{name}</MenuItem>
+                    <MenuItem key={name} value={name}>{exerciseClassificationFormat(name)}</MenuItem>
                 )}
             </TextField>
             <TextField

@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import './navbar.css'
-import {NavLink, Route, useHistory} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {logout} from "../../reducers/userReducer";
-import {AppBar, Button, IconButton, makeStyles, Menu, MenuItem, Toolbar, Typography} from "@material-ui/core";
+import {AppBar, Button, IconButton, makeStyles, Toolbar, Typography} from "@material-ui/core";
 import DateRangeIcon from '@material-ui/icons/DateRange';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';

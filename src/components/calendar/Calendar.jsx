@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {getWorkouts, createWorkout} from "../../actions/workout";
+import {getWorkouts} from "../../actions/workout";
 import WorkoutList from "./workoutList/WorkoutList"
 import {setPopupDisplay} from "../../reducers/workoutReducer";
-import {Button, ButtonGroup, Toolbar} from "@material-ui/core";
+import {Button} from "@material-ui/core";
 import AddIcon from '@material-ui/icons/Add';
 import Goal from "./Goal";
 import {getGoals} from "../../actions/goal";

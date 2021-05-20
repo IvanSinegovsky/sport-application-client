@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import Navbar from "./navbar/Navbar";
 import './app.css'
-import {BrowserRouter, Route, Switch, Redirect} from "react-router-dom";
+import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
 import Registration from "./authorization/Registration";
 import Graph from "./graph/Graph";
 import Login from "./authorization/Login";

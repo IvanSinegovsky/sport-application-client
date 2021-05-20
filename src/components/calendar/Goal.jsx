@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Card, CardActions, CardContent, CardHeader, Typography} from "@material-ui/core";
+import {Card, Typography} from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import ProgressBar from "../progress/ProgressBar";
 import exerciseClassificationFormat from "../../utils/exerciseClassificationFormat";

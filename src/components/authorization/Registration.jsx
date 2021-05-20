@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './authorization.css'
-import {login, registration} from "../../actions/user";
+import {registration} from "../../actions/user";
 import {Button, TextField, Typography} from "@material-ui/core";
 
 const Registration = () => {

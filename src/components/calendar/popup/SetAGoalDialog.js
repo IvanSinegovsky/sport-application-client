@@ -2,15 +2,13 @@ import React, {useState} from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import {InputAdornment, makeStyles, MenuItem, Typography} from "@material-ui/core";
+import {InputAdornment, MenuItem, Typography} from "@material-ui/core";
 import SaveIcon from "@material-ui/icons/Save";
 import CheckIcon from "@material-ui/icons/Check";
 import {useDispatch, useSelector} from "react-redux";
-import {addExercise} from "../../../reducers/popupReducer";
+import exerciseClassificationFormat from "../../../utils/exerciseClassificationFormat";
 import {createGoal} from "../../../actions/goal";
 
 
@@ -52,7 +50,7 @@ export default function SetAGoalDialog(props) {
                             style={{width: 200, paddingRight: 20}}
                         >
                             {exercisesClassifications.map((name, index) =>
-                                <MenuItem key={name} value={name}>{name}</MenuItem>
+                                <MenuItem key={name} value={name}>{exerciseClassificationFormat(name)}</MenuItem>
                             )}
                         </TextField>
                         <TextField
