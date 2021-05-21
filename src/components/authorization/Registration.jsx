@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './authorization.css'
-import {registration} from "../../actions/user";
+import {auth, registration} from "../../actions/user";
 import {Button, TextField, Typography} from "@material-ui/core";
 import {useHistory} from "react-router";
 
@@ -29,7 +29,9 @@ const Registration = () => {
 
     const handleButtonClick = () => {
         registration(firstName, lastName, email, password)
-        history.push("/")
+            .then(() => {auth()})
+            .then(() => {history.push("/")})
+            .catch(() => {history.push("/registration")})
     }
 
     return (

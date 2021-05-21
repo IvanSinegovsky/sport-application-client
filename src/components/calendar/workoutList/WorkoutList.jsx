@@ -5,6 +5,7 @@ import Workout from "./workout/Workout";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import {Switch} from "react-router-dom";
+import {Typography} from "@material-ui/core";
 
 const WorkoutList = () => {
     const workouts = useSelector(state => state.workout.workouts)
@@ -21,7 +22,10 @@ const WorkoutList = () => {
                     }
                 </Grid>
             </Container></Switch>
-                : <Switch><div>No workouts yet</div></Switch>}
+                : <Switch>
+                    <Typography color="textSecondary" style={{marginTop: 5, marginLeft: 30}}>
+                        No workouts yet, create from above
+                    </Typography></Switch>}
         </div>
     );
 };

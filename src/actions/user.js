@@ -11,7 +11,6 @@ export const registration = async (firstName, lastName, email, password) => {
             password
         })
         localStorage.setItem('token', response.data.token)
-        auth()
     } catch (e) {
         localStorage.removeItem('token')
         alert('some exception in registration() method')

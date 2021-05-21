@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {getWorkouts} from "../../actions/workout";
 import WorkoutList from "./workoutList/WorkoutList"
 import {setPopupDisplay} from "../../reducers/workoutReducer";
-import {Button} from "@material-ui/core";
+import {Button, Typography} from "@material-ui/core";
 import AddIcon from '@material-ui/icons/Add';
 import Goal from "./Goal";
 import {getGoals} from "../../actions/goal";
@@ -31,7 +31,9 @@ const Calendar = () => {
 
     return (
         <div>
-            {goals !== "" ? <Switch><Goal goals={goals}/></Switch> : <Switch><div style={{marginTop: 20}}>No goals yet</div></Switch>}
+            {goals !== ""
+                ? <Switch><Goal goals={goals}/></Switch>
+                : <Switch><Typography color="textSecondary" style={{marginTop: 25, marginLeft: 30}}>No goals yet</Typography></Switch>}
             <div>
                 <Button variant="outlined"
                         color="secondary"
@@ -44,6 +46,6 @@ const Calendar = () => {
             <WorkoutList/>
         </div>
     );
-};
+}
 
 export default Calendar;
