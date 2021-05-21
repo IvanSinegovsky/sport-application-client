@@ -10,7 +10,7 @@ export default function (state = defaultState, action) {
     switch (action.type) {
         case ADD_GOAL: return {...state, goals: [...state.goals, action.payload]}
         case DELETE_GOAL: return {...state, goals: [...state.goals.filter(
-                goals => goals.exerciseClassification !== action.payload
+                goals => goals.exerciseClassificationName !== action.payload
             )]}
         case SET_GOALS: return {...state, goals: action.payload}
         default:
@@ -19,5 +19,5 @@ export default function (state = defaultState, action) {
 }
 
 export const addGoal = (goals) =>({type: ADD_GOAL, payload: goals})
-export const deleteGoal = (exerciseClassification) =>({type: DELETE_GOAL, payload: exerciseClassification})
+export const deleteGoalAction = (exerciseClassificationName) =>({type: DELETE_GOAL, payload: exerciseClassificationName})
 export const setGoals = (goals) => ({type: SET_GOALS, payload: goals})

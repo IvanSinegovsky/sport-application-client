@@ -12,13 +12,13 @@ body {
   position: relative;
   margin: 15px 0;
   height: 30px;
-  width: 300px;
+  width: 260px;
 }
 .progress-done {
   background: linear-gradient(to left, #C2F8CB, #B3E9C7);
   box-shadow: 0 3px 3px -5px #B3E9C7, 0 2px 5px #8367C7;
   border-radius: 20px;
-  color: #000000;
+  color: black;
   display: flex;
   align-items: center;
   justify-content: center;

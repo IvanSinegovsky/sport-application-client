@@ -2,12 +2,14 @@ import React, {useState} from 'react';
 import './authorization.css'
 import {registration} from "../../actions/user";
 import {Button, TextField, Typography} from "@material-ui/core";
+import {useHistory} from "react-router";
 
 const Registration = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [firstName, setFirstname] = useState("")
     const [lastName, setLastname] = useState("")
+    const history = useHistory();
 
     const handleFirstNameChange = event => {
         setFirstname(event.target.value)
@@ -23,6 +25,11 @@ const Registration = () => {
 
     const handlePasswordChange = event => {
         setPassword(event.target.value)
+    }
+
+    const handleButtonClick = () => {
+        registration(firstName, lastName, email, password)
+        history.push("/")
     }
 
     return (
@@ -61,7 +68,7 @@ const Registration = () => {
             />
             <Button variant="contained"
                     color="white"
-                    onClick={() => registration(firstName, lastName, email, password)}>Sign up</Button>
+                    onClick={() => handleButtonClick()}>Sign up</Button>
         </div>
     );
 };

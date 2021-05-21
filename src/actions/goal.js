@@ -1,6 +1,6 @@
 import axios from "axios";
 import {API_URL} from "../config";
-import {addGoal, setGoals} from "../reducers/goalReducer";
+import {addGoal, deleteGoalAction, setGoals} from "../reducers/goalReducer";
 
 export function getGoals() {
     return async dispatch => {
@@ -29,6 +29,21 @@ export function createGoal(exerciseClassificationName, weight) {
             console.log(response.data)
         } catch (e) {
             alert(e.response)
+        }
+    }
+}
+
+export function deleteGoal(goal) {
+    return async dispatch => {
+        console.log(goal)
+        try {
+            const response = await axios.delete(
+                `${API_URL}/api/v1/goal/delete?exerciseClassificationName=${goal.exerciseClassificationName}`,{
+                headers: {Authorization: `${localStorage.getItem('token')}`}
+            });
+            dispatch(deleteGoalAction(goal.exerciseClassificationName))
+        } catch (e) {
+            alert('some exception in deleteGoal() method')
         }
     }
 }
