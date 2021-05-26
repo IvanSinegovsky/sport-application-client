@@ -37,6 +37,7 @@ export default function SetAGoalDialog(props) {
     function createHandler() {
         dispatch(createWorkout(date, exercises, description))
         dispatch(clearWorkoutCreating())
+        onClose()
     }
     function isDisabled() {
         if (date == null || exercises.length === 0) {

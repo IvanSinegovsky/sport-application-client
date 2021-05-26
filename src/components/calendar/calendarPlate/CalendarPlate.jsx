@@ -60,8 +60,6 @@ export default class CalendarPlate extends React.Component {
         this.setState({ date });
     };
 
-
-
     handleDayClick = date => {
         this.setState({ selectedDate: date });
 

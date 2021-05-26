@@ -1,6 +1,7 @@
 import axios from "axios";
 import {API_URL} from "../config";
 import {addWorkout, deleteWorkoutAction, setClassifiedWorkouts, setWorkouts} from "../reducers/workoutReducer";
+import * as constants from "constants";
 
 export function getWorkouts() {
     return async dispatch => {
@@ -72,21 +73,8 @@ export function getCurrentClassifiedWorkouts(exerciseClassification) {
             });
             dispatch(setClassifiedWorkouts(response.data))
         } catch (e) {
-            alert('some exception in getClassifiedWorkouts() method')
+            alert('some exception in getCurrentClassifiedWorkouts() method')
             alert(e.response.data)
-        }
-    }
-}
-
-export function getUserWorkoutsDates() {
-    return async dispatch => {
-        try {
-            const response = await axios.get(`${API_URL}/api/v1/calendar/workouts_dates}`, {
-                headers: {Authorization: `${localStorage.getItem('token')}`}
-            });
-            return response.data;
-        } catch (e) {
-            console.log('cant get users workouts dates')
         }
     }
 }

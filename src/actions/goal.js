@@ -28,7 +28,7 @@ export function createGoal(exerciseClassificationName, weight) {
             dispatch(addGoal(response.data))
             console.log(response.data)
         } catch (e) {
-            alert(e.response)
+            console.log('createGoal exception')
         }
     }
 }

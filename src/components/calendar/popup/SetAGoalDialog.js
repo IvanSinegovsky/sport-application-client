@@ -21,12 +21,13 @@ export default function SetAGoalDialog(props) {
 
     function handleSave() {
         dispatch(createGoal(exerciseClassificationName, expectedWeight))
+        onClose()
     }
 
     const handleChange = event => setExerciseClassificationName(event.target.value)
     const handleWeightInputChange = event => {
         setExpectedWeight(event.target.value)
-        console.log(expectedWeight)
+        console.log("goalExpectedWeight"+expectedWeight)
     }
     const handleClose = () => {onClose()}
 

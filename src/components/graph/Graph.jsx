@@ -4,6 +4,7 @@ import './graph.css'
 import {getCurrentClassifiedWorkouts} from "../../actions/workout";
 import Chart from "./Chart";
 import {MenuItem, TextField} from "@material-ui/core";
+import exerciseClassificationFormat from "../../utils/exerciseClassificationFormat";
 
 const Graph = () => {
     const dispatch = useDispatch()
@@ -11,14 +12,11 @@ const Graph = () => {
     const exercisesClassifications = useSelector(state => state.exerciseClassification.exercisesClassifications)
     const classifiedWorkouts = useSelector(state => state.workout.classifiedWorkouts)
 
-    const handleChange = event => {
+
+    const handleChange = (event) => {
+        dispatch(getCurrentClassifiedWorkouts(event.target.value))
         setExerciseClassificationName(event.target.value)
-        dispatch(getCurrentClassifiedWorkouts(exerciseClassificationName))
     }
-/*
-    useEffect(() => {
-        dispatch(getCurrentClassifiedWorkouts(exerciseClassificationName))
-    }, [])*/
 
     return (
         <div className="calendar">
@@ -31,7 +29,7 @@ const Graph = () => {
                 style={{width: 200, paddingRight: 20}}
             >
                 {exercisesClassifications.map((name, index) =>
-                    <MenuItem key={name} value={name}>{name}</MenuItem>
+                    <MenuItem key={name} value={name}>{exerciseClassificationFormat(name)}</MenuItem>
                 )}
             </TextField>
             {
